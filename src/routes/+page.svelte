@@ -1,4 +1,5 @@
 <script>
+	import MainBody from '../components/body/MainBody.svelte';
 	import MainHeader from '../components/header/MainHeader.svelte';
 </script>
 
@@ -7,7 +8,7 @@
 	<MainHeader />
 
 	<!-- Body -->
+	<MainBody />
 
 	<!-- Footer -->
 </main>
-
