@@ -1,5 +1,5 @@
 <div class="">
-	<p id="logo">Writegap</p>
+	<p id="logo">Resdev</p>
 </div>
 
 <style>
@@ -7,7 +7,8 @@
 		margin: 0;
 		font-size: 32px;
 		font-family: 'Righteous', 'Roboto';
-		background: linear-gradient(90deg, #4e004e 1%, rgba(255, 144, 0, 1) 99%);
+		/* background: linear-gradient(90deg, #4e004e 1%, rgba(255, 144, 0, 1) 99%); */
+		background: rgba(255, 144, 0, 1);
 
 		/* Set the background size and repeat properties. */
 		background-size: 100%;
