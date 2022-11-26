@@ -3,7 +3,7 @@
 
 	export let active: number = 0;
 	const page = ['Dashboard', 'Blog', 'Playground'];
-	const activeClass = 'border-b-2 border-solid border-[#FFA500]';
+	const activeClass = 'border-b-2 border-solid border-brand-light';
 </script>
 
 <div class="navbar bg-base-100 py-4 px-16">
