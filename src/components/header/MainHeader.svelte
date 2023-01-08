@@ -2,7 +2,20 @@
 	import Logo from '../brand/Logo.svelte';
 
 	export let active: number = 0;
-	const page = ['Dashboard', 'Blog', 'Playground'];
+	const page = [
+		{
+			name: 'Dashboard',
+			href: '/'
+		},
+		{
+			name: 'Blog',
+			href: '/blog'
+		},
+		{
+			name: 'Playground',
+			href: '/playground'
+		}
+	];
 	const activeClass = 'border-b-2 border-solid border-brand-light';
 </script>
 
@@ -17,8 +30,8 @@
 		<ul class="menu menu-horizontal p-0 text-[14px] font-semibold">
 			{#each page as p, idx}
 				<li>
-					<a href={'/' + p.toLowerCase()} class="m-0 mx-2 rounded p-0">
-						<p class="px-2 py-2 {active === idx ? activeClass : ''}">{p}</p>
+					<a href={p.href} class="m-0 mx-2 rounded p-0">
+						<p class="px-2 py-2 {active === idx ? activeClass : ''}">{p.name}</p>
 					</a>
 				</li>
 			{/each}
