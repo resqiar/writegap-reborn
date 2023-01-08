@@ -11,7 +11,7 @@
 			</h1>
 
 			<p class="py-6 leading-6">
-				a <strong>Fullstack Developer</strong> from a beautiful country Indonesia 🇮🇩. <br /> I specialize
+				a <strong>Fullstack Developer</strong> from a beautiful country of Indonesia 🇮🇩. <br /> I specialize
 				in building Web and Server development.
 			</p>
 

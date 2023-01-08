@@ -3,6 +3,10 @@
 	import MainHeader from '../components/header/MainHeader.svelte';
 </script>
 
+<svelte:head>
+	<title>Resdev | Blogs, Showcases and Playground</title>
+</svelte:head>
+
 <main>
 	<!-- Header -->
 	<MainHeader />
