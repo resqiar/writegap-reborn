@@ -42,3 +42,13 @@ export const passport = {
 	title: 'PassportJS',
 	url: '/media/techs/passport.png'
 };
+
+export const python = {
+	title: 'Python',
+	url: '/media/techs/python.png'
+};
+
+export const flask = {
+	title: 'Flask',
+	url: '/media/techs/flask.png'
+};

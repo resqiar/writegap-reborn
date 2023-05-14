@@ -1,9 +1,11 @@
 import {
 	fastify,
+	flask,
 	jdoodle,
 	nestjs,
 	passport,
 	postgres,
+	python,
 	svelte,
 	tailwind,
 	typeorm,
@@ -46,5 +48,13 @@ export const showcaseData = [
 		demoURL: 'https://binder-theta.vercel.app',
 		sourceURL: 'https://github.com/resqiar/binder-server',
 		techs: [typescript, nestjs, fastify, postgres, typeorm, passport]
+	},
+	{
+		title: 'AI Anime Recommender',
+		description:
+			'Personalized anime recommendation based on user-based similarity calculations. Use collaborative filtering method with Pearson and Cosine. Built in-collaboration with @Hilll19 and @nathanpasca.',
+		images: ['/media/ai-recommender.png'],
+		sourceURL: 'https://github.com/resqiar/anime-recommender',
+		techs: [python, flask]
 	}
 ];
