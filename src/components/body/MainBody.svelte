@@ -13,7 +13,7 @@
 	<div class="mx-28 my-12 flex flex-col gap-8">
 		{#each showcaseData as data}
 			<div class="flex items-center gap-8 rounded-lg">
-				<div class="w-[250px]">
+				<div class="w-[400px]">
 					<a href={data.sourceURL} target="_blank">
 						{#if browser}
 							<Carousel
@@ -24,7 +24,7 @@
 								pauseOnFocus
 							>
 								{#each data.images as img}
-									<img class="h-[250px] w-[250px] object-cover" src={img} alt="item" />
+									<img class="h-[250px] w-[400px] object-cover" src={img} alt="item" />
 								{/each}
 							</Carousel>
 						{/if}
