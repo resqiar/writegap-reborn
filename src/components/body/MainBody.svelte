@@ -40,11 +40,11 @@
 					<div class="my-2">
 						<p class="font-bold">Technologies used:</p>
 
-						<div class="mt-2 flex gap-2">
+						<div class="mt-2 flex gap-3">
 							{#each data.techs as stack}
 								<img
 									src={stack.url}
-									class="h-[35px] w-[35px] object-cover"
+									class="h-[35px] object-cover"
 									alt={stack.title}
 									title={stack.title}
 								/>
