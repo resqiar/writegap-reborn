@@ -14,3 +14,5 @@ declare namespace App {
 
 	type FileResolver = () => Promise<SvelteFile>;
 }
+
+declare module 'svelte-carousel';
