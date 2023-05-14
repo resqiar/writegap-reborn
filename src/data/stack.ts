@@ -52,3 +52,8 @@ export const flask = {
 	title: 'Flask',
 	url: '/media/techs/flask.png'
 };
+
+export const golang = {
+	title: 'Golang',
+	url: '/media/techs/golang.png'
+};

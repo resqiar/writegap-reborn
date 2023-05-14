@@ -1,6 +1,7 @@
 import {
 	fastify,
 	flask,
+	golang,
 	jdoodle,
 	nestjs,
 	passport,
@@ -48,6 +49,20 @@ export const showcaseData = [
 		demoURL: 'https://binder-theta.vercel.app',
 		sourceURL: 'https://github.com/resqiar/binder-server',
 		techs: [typescript, nestjs, fastify, postgres, typeorm, passport]
+	},
+	{
+		title: 'Go Bookstore',
+		description:
+			'Go Bookstore is a Golang and Postgres-based project that offers an online book store. The project also includes an admin dashboard for management of inventory. in collaboration with @Hilll19 and @nathanpasca',
+		images: [
+			'/media/bookstore.png',
+			'/media/bookstore-1.png',
+			'/media/bookstore-2.png',
+			'/media/bookstore-3.png'
+		],
+		demoURL: 'https://bookstore-bryy.onrender.com',
+		sourceURL: 'https://github.com/resqiar/bookstore',
+		techs: [golang, postgres]
 	},
 	{
 		title: 'AI Anime Recommender',
