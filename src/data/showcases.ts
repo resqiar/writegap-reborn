@@ -44,7 +44,7 @@ export const showcaseData = [
 			'/media/binder-3.png'
 		],
 		demoURL: 'https://binder-theta.vercel.app',
-		sourceURL: 'https://github.com/resqiar/binder',
+		sourceURL: 'https://github.com/resqiar/binder-server',
 		techs: [typescript, nestjs, fastify, postgres, typeorm, passport]
 	}
 ];
