@@ -19,7 +19,7 @@
 	const activeClass = 'border-b-2 border-solid border-brand-light';
 </script>
 
-<div class="navbar bg-base-100 py-4 px-16">
+<div class="navbar bg-base-100 px-16 py-4">
 	<!-- Start -->
 	<div class="navbar-start">
 		<a href="/"><Logo /></a>
@@ -40,6 +40,10 @@
 
 	<!-- End -->
 	<div class="navbar-end">
+		<a href="/auth" class="m-0 mx-2 rounded p-0">
+			<p class="px-2 py-2 hover:underline">Login</p>
+		</a>
+
 		<!-- GITHUB BUTTON -->
 		<a
 			href="https://github.com/resqiar"
