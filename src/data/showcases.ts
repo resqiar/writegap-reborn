@@ -60,7 +60,6 @@ export const showcaseData = [
 			'/media/bookstore-2.png',
 			'/media/bookstore-3.png'
 		],
-		demoURL: 'https://bookstore-bryy.onrender.com',
 		sourceURL: 'https://github.com/resqiar/bookstore',
 		techs: [golang, postgres]
 	},
