@@ -1,4 +1,5 @@
 <script lang="ts">
+	import IndexBlogBody from '../../components/body/IndexBlogBody.svelte';
 	import MainHeader from '../../components/header/MainHeader.svelte';
 </script>
 
@@ -8,4 +9,7 @@
 
 <header>
 	<MainHeader active={1} />
+
+	<!-- Body -->
+	<IndexBlogBody />
 </header>
