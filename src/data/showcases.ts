@@ -15,6 +15,14 @@ import {
 
 export const showcaseData = [
 	{
+		title: 'Hey this page! Resdev.com was built by myself ❤️‍🔥🎊',
+		description:
+			'My personal page where it becomes the place I want to share all the knowledges, thoughts, and everything in between.',
+		images: ['/media/algo.png'],
+		sourceURL: 'https://github.com/resqiar/resdev',
+		techs: [svelte, typescript, tailwind, golang, postgres]
+	},
+	{
 		title: 'Algo Visualizer',
 		description: 'Visualize infamous many algorithms for showcase and learning purpose.',
 		images: ['/media/algo.png', '/media/algo-1.png', '/media/algo-2.png', '/media/algo-3.png'],
