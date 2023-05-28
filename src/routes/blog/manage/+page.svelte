@@ -1,7 +1,6 @@
 <script lang="ts">
 	import MainHeader from '../../../components/header/MainHeader.svelte';
 
-	import { UserProfileStore } from '../../../stores/UserStore';
 	import type UserProfile from '../../../types/UserProfile';
 	import type { PageData } from './$types';
 
@@ -10,9 +9,6 @@
 	// Profile data derived from the SSR process
 	// @see ./+page.server.ts
 	let profile: UserProfile = data.user;
-
-	// update store value
-	UserProfileStore.set(profile);
 </script>
 
 <svelte:head>
@@ -20,7 +16,7 @@
 </svelte:head>
 
 <header>
-	<MainHeader active={1} />
+	<MainHeader active={1} user={profile} />
 
 	<!-- Body -->
 </header>

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { UserProfileStore } from '../../stores/UserStore';
 	import type UserProfile from '../../types/UserProfile';
 
 	import Logo from '../brand/Logo.svelte';
@@ -20,11 +19,10 @@
 		}
 	];
 	const activeClass = 'border-b-2 border-solid border-brand-light';
-	// user data coming from the store.
-	// if user is logged-in value would be type of @UserProfile, otherwise null;
-	let user: UserProfile | null = null;
 
-	UserProfileStore.subscribe((value) => (user = value));
+	// user data coming from the parent component.
+	// if user is logged-in value would be type of @UserProfile, otherwise null;
+	export let user: UserProfile | null = null;
 </script>
 
 <div class="navbar bg-base-100 px-16 py-4">
