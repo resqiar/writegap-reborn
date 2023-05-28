@@ -20,7 +20,6 @@
 		}
 	];
 	const activeClass = 'border-b-2 border-solid border-brand-light';
-
 	// user data coming from the store.
 	// if user is logged-in value would be type of @UserProfile, otherwise null;
 	let user: UserProfile | null = null;
@@ -73,6 +72,25 @@
 					tabindex="-1"
 					class="dropdown-content menu rounded-box w-52 bg-base-200 p-2 shadow-2xl"
 				>
+					<li>
+						<a href="/blog/manage">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="1.5"
+								stroke="currentColor"
+								class="h-6 w-6"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+								/>
+							</svg>
+							My Blog</a
+						>
+					</li>
 					<li>
 						<a href="/profile">
 							<svg
