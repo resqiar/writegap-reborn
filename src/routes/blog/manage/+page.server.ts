@@ -18,6 +18,6 @@ export async function load({ fetch }: ServerLoadEvent) {
 			user: userProfile
 		};
 	} catch (error) {
-		throw redirect(307, '/auth?redirect=/blog/manage');
+		throw redirect(307, '/auth');
 	}
 }
