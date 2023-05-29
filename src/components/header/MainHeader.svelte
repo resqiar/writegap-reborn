@@ -25,7 +25,7 @@
 	export let user: UserProfile | null = null;
 </script>
 
-<div class="navbar bg-base-100 px-6 py-4 lg:px-16">
+<div class="navbar bg-base-100 px-4 py-4 lg:px-16">
 	<!-- Start -->
 	<div class="navbar-start">
 		<a href="/"><Logo /></a>
@@ -45,7 +45,7 @@
 	</div>
 
 	<!-- End -->
-	<div class="navbar-end flex items-center gap-2">
+	<div class="navbar-end flex items-center lg:gap-2">
 		{#if user}
 			<!-- ONLY SHOW WHEN USER LOGGED-IN -->
 			<div class="dropdown-bottom dropdown-end dropdown">

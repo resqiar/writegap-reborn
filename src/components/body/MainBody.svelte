@@ -10,10 +10,10 @@
 	<MainHero />
 
 	<!-- Projects Showcase -->
-	<div class="mx-28 my-12">
+	<div class="mx-4 my-12 lg:mx-28">
 		<div class="mb-6 mt-12">
 			<h1 class="text-2xl font-bold">Projects Showcase</h1>
-			<p class="mt-2 max-w-[80%] text-justify font-medium">
+			<p class="mt-2 text-justify font-medium lg:max-w-[80%]">
 				Discover featured projects that I worked. From impressive websites, servers, AI, IoT, to
 				just sandbox. Please note that this is just a selection of our recent work; you can find
 				more projects in my <a href="https://github.com/resqiar" target="_blank" class="underline"
@@ -25,8 +25,8 @@
 
 		<div class="flex flex-col gap-8">
 			{#each showcaseData as data}
-				<div class="flex items-center gap-8 rounded-lg">
-					<div class="w-[400px]">
+				<div class="flex flex-col items-center gap-8 rounded-lg lg:flex-row">
+					<div class="w-full lg:w-[400px]">
 						<a href={data.sourceURL} target="_blank">
 							{#if browser}
 								<Carousel

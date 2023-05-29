@@ -7,8 +7,8 @@
 	<title>Login or Register | Resdev</title>
 </svelte:head>
 
-<main class="flex min-h-screen w-full items-center justify-center">
-	<div class="card w-[38%] bg-base-100 shadow-xl">
+<main class="mt-16 flex min-h-screen w-full items-start justify-center lg:mt-0 lg:items-center">
+	<div class="card bg-base-100 lg:w-[38%] lg:shadow-xl">
 		<div class="card-body">
 			<h1 class="card-title text-2xl font-bold">Welcome Back!</h1>
 			<p class="text-justify text-sm font-medium">

@@ -1,12 +1,13 @@
-<div class="hero min-h-[600px] bg-base-200">
-	<div class="hero-content h-full w-full flex-col gap-12 px-8 py-0 lg:flex-row-reverse">
+<div class="hero bg-base-200 lg:min-h-[600px]">
+	<div class="hero-content h-full w-full flex-col gap-12 py-0 lg:flex-row-reverse lg:px-8">
 		<img
 			alt="Hero"
 			src="/media/talent.png"
-			class="mr-8 max-w-sm self-end rounded-lg object-cover"
+			class="max-w-[250px] self-center rounded-lg object-cover lg:mr-8 lg:max-w-sm lg:self-end"
 		/>
-		<div class="max-w-[600px] pr-16">
-			<h1 class="justify text-5xl font-bold leading-[60px]">
+
+		<div class="w-full lg:max-w-[600px] lg:pr-16">
+			<h1 class="justify text-2xl font-bold lg:text-5xl lg:leading-[60px]">
 				Crafting cutting-edge softwares and delivering exceptional DX/UX.
 			</h1>
 
