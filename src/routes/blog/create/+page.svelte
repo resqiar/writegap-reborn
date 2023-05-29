@@ -1,5 +1,6 @@
 <script lang="ts">
 	import MainHeader from '../../../components/header/MainHeader.svelte';
+	import IneligibleMessage from '../../../components/others/IneligibleMessage.svelte';
 
 	import type UserProfile from '../../../types/UserProfile';
 	import type { PageData } from './$types';
@@ -23,6 +24,8 @@
 	{#if eligible}
 		<h1>You are eligible for test!</h1>
 	{:else}
-		<h1>You are NOT eligible!</h1>
+		<div class="mx-24 my-12">
+			<IneligibleMessage />
+		</div>
 	{/if}
 </header>
