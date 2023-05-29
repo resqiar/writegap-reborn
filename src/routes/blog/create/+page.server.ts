@@ -26,7 +26,7 @@ export async function load({ fetch }: ServerLoadEvent) {
 			// return 200, not 401, 404, 500
 			// otherwise, the request of adm is rejected,
 			// or the status is else of 200
-			adm: admReq.status === 'fulfilled' && admReq.value.ok
+			eligible: admReq.status === 'fulfilled' && admReq.value.ok
 		};
 	} catch (error) {
 		throw redirect(307, '/auth');

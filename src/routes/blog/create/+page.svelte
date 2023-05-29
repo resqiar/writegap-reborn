@@ -9,7 +9,7 @@
 	// Profile data derived from the SSR process
 	// @see ./+page.server.ts
 	let profile: UserProfile = data.user;
-	let adm: boolean = data.adm;
+	let eligible: boolean = data.eligible;
 </script>
 
 <svelte:head>
@@ -20,7 +20,7 @@
 	<MainHeader active={1} user={profile} />
 
 	<!-- Body -->
-	{#if adm}
+	{#if eligible}
 		<h1>You are eligible for test!</h1>
 	{:else}
 		<h1>You are NOT eligible!</h1>
