@@ -1,4 +1,5 @@
 <script lang="ts">
+	import ManageBlogBody from '../../../components/body/ManageBlogBody.svelte';
 	import MainHeader from '../../../components/header/MainHeader.svelte';
 
 	import type UserProfile from '../../../types/UserProfile';
@@ -19,4 +20,5 @@
 	<MainHeader active={1} user={profile} />
 
 	<!-- Body -->
+	<ManageBlogBody />
 </header>
