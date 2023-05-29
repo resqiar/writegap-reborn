@@ -24,7 +24,7 @@
 	{#if eligible}
 		<h1>You are eligible for test!</h1>
 	{:else}
-		<div class="mx-24 my-12">
+		<div class="mx-4 my-12 lg:mx-24">
 			<IneligibleMessage />
 		</div>
 	{/if}

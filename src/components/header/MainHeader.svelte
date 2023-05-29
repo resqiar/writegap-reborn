@@ -25,7 +25,7 @@
 	export let user: UserProfile | null = null;
 </script>
 
-<div class="navbar bg-base-100 px-16 py-4">
+<div class="navbar bg-base-100 px-6 py-4 lg:px-16">
 	<!-- Start -->
 	<div class="navbar-start">
 		<a href="/"><Logo /></a>
