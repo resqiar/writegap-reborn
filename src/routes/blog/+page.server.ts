@@ -2,32 +2,53 @@ import { PUBLIC_SERVER_URL } from '$env/static/public';
 import type { ServerLoadEvent } from '@sveltejs/kit';
 import type UserProfile from '../../types/UserProfile';
 
-export async function load({ fetch }: ServerLoadEvent) {
+export async function load({ fetch, cookies }: ServerLoadEvent) {
 	let user: UserProfile | null = null;
 	let blogs: any[] = [];
 	let error: boolean = false;
 
-	try {
-		// Initiate fetch requests for 2 or more fetch requests concurrently,
-		// that means the JS runtime will processes these simultaniously.
-		const [userRes, blogRes] = await Promise.allSettled([
-			fetch(`${PUBLIC_SERVER_URL}/user/profile`),
-			fetch(`${PUBLIC_SERVER_URL}/blog/list`)
-		]);
+	// Get session_id from cookies
+	const session_id = cookies.get('session_id');
 
-		if (userRes.status === 'fulfilled') {
-			const { result } = await userRes.value.json();
-			user = result;
-		}
+	// If there is no session cookies - or expired cookies,
+	// Do not request the user profile, skip it.
+	// This way we can save bandwidth for the server.
+	if (!session_id) {
+		try {
+			const req = await fetch(`${PUBLIC_SERVER_URL}/blog/list`);
 
-		if (blogRes.status === 'fulfilled') {
-			const { result } = await blogRes.value.json();
-			blogs = result;
-		} else {
-			error = true;
+			if (req.ok) {
+				const { result } = await req.json();
+				blogs = result;
+			} else {
+				error = true;
+			}
+		} catch (error) {
+			console.error(error);
 		}
-	} catch (error) {
-		console.error(error);
+	} else {
+		try {
+			// Initiate fetch requests for 2 or more fetch requests concurrently,
+			// that means the JS runtime will processes these simultaniously.
+			const [userRes, blogRes] = await Promise.allSettled([
+				fetch(`${PUBLIC_SERVER_URL}/user/profile`),
+				fetch(`${PUBLIC_SERVER_URL}/blog/list`)
+			]);
+
+			if (userRes.status === 'fulfilled') {
+				const { result } = await userRes.value.json();
+				user = result;
+			}
+
+			if (blogRes.status === 'fulfilled') {
+				const { result } = await blogRes.value.json();
+				blogs = result;
+			} else {
+				error = true;
+			}
+		} catch (error) {
+			console.error(error);
+		}
 	}
 
 	return {
