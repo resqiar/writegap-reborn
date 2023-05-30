@@ -37,6 +37,7 @@
   "type": "module",
   "dependencies": {
     "daisyui": "^2.41.0",
-    "postcss-load-config": "^4.0.1"
+    "postcss-load-config": "^4.0.1",
+    "svelte-file-dropzone": "^2.0.1"
   }
 }
