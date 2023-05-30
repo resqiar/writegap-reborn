@@ -1,0 +1,45 @@
+<script lang="ts">
+	import Dropzone from 'svelte-file-dropzone/Dropzone.svelte';
+
+	let onDragHover: boolean = false;
+	let fileError: boolean = false;
+
+	export let onDropSuccess: (file: File) => void;
+
+	function handleFilesSelect(e: any) {
+		fileError = false;
+
+		// get accept image files from the event
+		const { acceptedFiles } = e.detail;
+		if (acceptedFiles.length) {
+			// call parent callback with the successful file as
+			// a parameter
+			return onDropSuccess(acceptedFiles[0]);
+		}
+
+		fileError = true;
+	}
+</script>
+
+<Dropzone
+	inputElement={null}
+	on:drop={handleFilesSelect}
+	on:dragenter={() => (onDragHover = true)}
+	on:filedropped={() => (onDragHover = false)}
+	on:dragleave={() => (onDragHover = false)}
+	disableDefaultStyles={true}
+	multiple={false}
+	accept={['image/jpg', 'image/jpeg', 'image/png']}
+	containerClasses={`${
+		onDragHover ? 'border-2 border-amber-500 border-dashed' : ''
+	} flex flex-col items-center justify-center min-h-[300px] rounded-lg bg-base-300`}
+>
+	<p class="font-semibold">Click or Drag Image Here</p>
+	<p class="text-sm">Supported formats are jpg, jpeg, png</p>
+
+	{#if fileError}
+		<p class="text-sm text-red-500">
+			Failed to accept the file, are you sure using the correct format?
+		</p>
+	{/if}
+</Dropzone>

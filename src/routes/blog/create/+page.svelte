@@ -1,4 +1,5 @@
 <script lang="ts">
+	import CreateBlogBody from '../../../components/body/CreateBlogBody.svelte';
 	import MainHeader from '../../../components/header/MainHeader.svelte';
 	import IneligibleMessage from '../../../components/others/IneligibleMessage.svelte';
 
@@ -14,7 +15,7 @@
 </script>
 
 <svelte:head>
-	<title>Manage your blogs</title>
+	<title>Create New Blog</title>
 </svelte:head>
 
 <header>
@@ -22,7 +23,7 @@
 
 	<!-- Body -->
 	{#if eligible}
-		<h1>You are eligible for test!</h1>
+		<CreateBlogBody />
 	{:else}
 		<div class="mx-4 my-12 lg:mx-24">
 			<IneligibleMessage />
