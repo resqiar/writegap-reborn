@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
 	import ImageDropzone from '../others/ImageDropzone.svelte';
 
 	let imageFile: File | null = null;
@@ -14,9 +15,11 @@
 
 		previewReader.readAsDataURL(imageFile);
 	}
+
+	let content: string = '';
 </script>
 
-<main class="py-8 lg:px-24">
+<main class="mb-32 px-4 py-8 lg:px-24">
 	<div>
 		<h1 class="text-2xl font-bold">Create Blog</h1>
 		<p>Begin your own story and let the world know.</p>
@@ -103,6 +106,41 @@
 				class="textarea-bordered textarea"
 				placeholder="e.g The Programmer Story: Hello World follows Alex, a skilled programmer, on a transformative journey. Alex creates an AI program named Hello World that simulates human emotions. As the program evolves, Alex realizes its immense potential..."
 			/>
+		</div>
+
+		<div>
+			<div class="mx-1 my-2">
+				<h2 class="font-semibold">Blog Content</h2>
+			</div>
+
+			<!-- CONTENT EDITOR COMPONENT -->
+			<!-- LAZY LOAD TO SPEED UP TTI AND MINIMIZE CODE SIZE (reduce almost 50% size) -->
+			{#await import('../others/ContentEditor.svelte')}
+				<div
+					transition:fade
+					class="min-h-[300px] bg-base-300 rounded-lg flex items-center justify-center"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="w-6 h-6 animate-bounce"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+						/>
+					</svg>
+					<p class="animate-pulse">Initializing Editor...</p>
+				</div>
+			{:then Module}
+				<div transition:fade>
+					<Module.default handleContentChange={(e) => (content = e.detail.value)} {content} />
+				</div>
+			{/await}
 		</div>
 	</div>
 </main>
