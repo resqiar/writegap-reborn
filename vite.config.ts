@@ -5,7 +5,8 @@ import { resolve } from 'path';
 export default defineConfig(({ mode }) => ({
 	plugins: [sveltekit()],
 	optimizeDeps: {
-		include: ['lodash.get', 'lodash.isequal', 'lodash.clonedeep']
+		include: ['lodash.get', 'lodash.isequal', 'lodash.clonedeep'],
+    exclude: ['bytemd']
 	},
 	resolve: {
 		alias: {
