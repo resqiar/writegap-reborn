@@ -1,7 +1,8 @@
 <script lang="ts">
+	import type { IBlog } from '../../types/Blog';
 	import SimpleHero from '../hero/SimpleHero.svelte';
 
-	export let blogs: any[] = [];
+	export let blogs: IBlog[] = [];
 	export let isError: boolean = false;
 </script>
 
@@ -20,11 +21,7 @@
 			{#each blogs as item}
 				<div class="card w-96 bg-base-100 shadow-xl">
 					<figure>
-						<img
-							alt="Mockup Blog"
-							src="/media/mockup/mockup.jpg"
-							class="max-h-[200px] w-full object-cover"
-						/>
+						<img alt="Mockup Blog" src={item.CoverURL} class="max-h-[200px] w-full object-cover" />
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">{item.Title}</h2>
