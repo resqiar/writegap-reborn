@@ -32,6 +32,7 @@
 			title,
 			summary,
 			content,
+			image: imageFile,
 			onLoadingStart: () => (createLoading = true),
 			onLoadingEnd: () => (createLoading = false),
 			onError: (err: string) => (errorMessage = err)

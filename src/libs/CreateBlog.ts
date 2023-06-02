@@ -1,14 +1,39 @@
-import { PUBLIC_SERVER_URL } from '$env/static/public';
+import { PUBLIC_IK_END, PUBLIC_IK_KEY, PUBLIC_SERVER_URL } from '$env/static/public';
+import ImageKit from 'imagekit-javascript';
 import type { ICreateBlogInput } from '../types/CreateBlogInput';
 
 export async function handleBlogCreate(input: ICreateBlogInput): Promise<string | undefined> {
 	if (!input.title) return;
 
-	// call start loading callback. This-
+	// reference for cover URL / image URL
+	let imageURL: string | null = null;
+
+	// call "start loading" callback. This-
 	// makes parent component show loading state
 	input.onLoadingStart();
 
 	try {
+		if (input.image) {
+			// Initialize ImageKit libs.
+			// it requires a public key of ImageKit,
+			// url of account, and server endpoint for signature.
+			const imagekit = new ImageKit({
+				publicKey: PUBLIC_IK_KEY,
+				urlEndpoint: PUBLIC_IK_END,
+				authenticationEndpoint: `${PUBLIC_SERVER_URL}/auth/ik`
+			});
+
+			// Start uploading to imagekit
+			const result = await imagekit.upload({
+				file: input.image,
+				fileName: input.image.name,
+				folder: import.meta.env.VITE_NODE_ENV === 'production' ? 'live' : 'local'
+			});
+
+			// Bind result to previous reference.
+			imageURL = result.url;
+		}
+
 		const req = await fetch(`${PUBLIC_SERVER_URL}/blog/create`, {
 			method: 'POST',
 			credentials: 'include',
@@ -18,7 +43,8 @@ export async function handleBlogCreate(input: ICreateBlogInput): Promise<string 
 			body: JSON.stringify({
 				title: input.title,
 				summary: input.summary,
-				content: input.content
+				content: input.content,
+				coverURL: imageURL ? imageURL : null
 			})
 		});
 
