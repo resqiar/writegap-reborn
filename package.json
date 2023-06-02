@@ -39,7 +39,7 @@
     "@bytemd/plugin-gfm": "^1.21.0",
     "@bytemd/plugin-highlight-ssr": "^1.21.0",
     "bytemd": "^1.21.0",
-    "daisyui": "^2.41.0",
+    "daisyui": "^3.0.1",
     "imagekit-javascript": "^1.5.5",
     "postcss-load-config": "^4.0.1",
     "svelte-file-dropzone": "^2.0.1"
