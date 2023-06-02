@@ -48,7 +48,7 @@
 	<div class="navbar-end flex items-center lg:gap-2">
 		{#if user}
 			<!-- ONLY SHOW WHEN USER LOGGED-IN -->
-			<div class="dropdown-bottom dropdown-end dropdown">
+			<div class="dropdown-bottom dropdown dropdown-end">
 				<label tabindex="-1" class="btn-ghost btn-square btn" for="menu-dropdown">
 					<!-- AVATAR -->
 					<div class="placeholder avatar">

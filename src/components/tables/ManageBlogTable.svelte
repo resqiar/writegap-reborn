@@ -1,8 +1,41 @@
 <script lang="ts">
+	import type { ManageAction } from '../../data/modalActionState';
 	import type { IBlog } from '../../types/Blog';
+	import ManageModal from '../modal/ManageModal.svelte';
 
 	export let data: IBlog[];
 	export let published: boolean;
+
+	let actionID: string;
+	let actionModal: boolean = false;
+	let actionState: ManageAction;
+
+	async function handleOnSubmit() {
+		switch (actionState) {
+			case 'unpublish':
+				console.log(actionID);
+				console.log('UNPUBLISH');
+				break;
+
+			case 'publish':
+				console.log(actionID);
+				console.log('PUBLISH');
+				break;
+
+			case 'edit':
+				console.log(actionID);
+				console.log('EDIT');
+				break;
+
+			case 'remove':
+				console.log(actionID);
+				console.log('REMOVE');
+				break;
+
+			default:
+				break;
+		}
+	}
 </script>
 
 <div class="my-4 w-full overflow-x-auto">
@@ -52,7 +85,15 @@
 					</td>
 					<td>
 						{#if published}
-							<button title="Unpublish Blog" class="btn-error btn-sm btn text-sm">
+							<button
+								on:click={() => {
+									actionState = 'unpublish'; // set action state to unpublish
+									actionID = item.ID; // set action ID to current item ID
+									actionModal = true;
+								}}
+								title="Unpublish Blog"
+								class="btn-error btn-sm btn text-sm"
+							>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
@@ -70,7 +111,15 @@
 							</button>
 						{:else}
 							<div class="flex gap-1">
-								<button title="Publish Blog" class="btn-primary btn-sm btn text-sm">
+								<button
+									on:click={() => {
+										actionState = 'publish'; // set action state to publish
+										actionID = item.ID; // set action ID to current item ID
+										actionModal = true;
+									}}
+									title="Publish Blog"
+									class="btn-primary btn-sm btn text-sm"
+								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										fill="none"
@@ -87,7 +136,15 @@
 									</svg>
 								</button>
 
-								<button title="Edit Blog" class="btn-warning btn-sm btn text-sm">
+								<button
+									on:click={() => {
+										actionState = 'edit'; // set action state to edit
+										actionID = item.ID; // set action ID to current item ID
+										actionModal = true;
+									}}
+									title="Edit Blog"
+									class="btn-warning btn-sm btn text-sm"
+								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										fill="none"
@@ -104,7 +161,15 @@
 									</svg>
 								</button>
 
-								<button title="Remove Blog" class="btn-error btn-sm btn text-sm">
+								<button
+									on:click={() => {
+										actionState = 'remove'; // set action state to remove
+										actionID = item.ID; // set action ID to current item ID
+										actionModal = true;
+									}}
+									title="Remove Blog"
+									class="btn-error btn-sm btn text-sm"
+								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										fill="none"
@@ -127,4 +192,12 @@
 			{/each}
 		</tbody>
 	</table>
+
+	<!-- CONFIRMATION DIALOG -->
+	<ManageModal
+		on:click={handleOnSubmit}
+		status={actionModal}
+		{actionState}
+		handleOnCancel={() => (actionModal = false)}
+	/>
 </div>
