@@ -195,7 +195,8 @@
 										actionModal = true;
 									}}
 									title="Remove Blog"
-									class="btn-error btn-sm btn text-sm"
+									class="btn-error disabled btn-sm btn text-sm"
+									disabled
 								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
