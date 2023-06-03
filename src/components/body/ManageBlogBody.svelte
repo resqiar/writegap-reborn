@@ -6,6 +6,7 @@
 	export let publishedBlogs: IBlog[];
 	export let draftedBlogs: IBlog[];
 	export let error: boolean;
+	export let onDataChange: () => void;
 
 	let tabIndex: number = 0;
 </script>
@@ -67,7 +68,7 @@
 				<!-- IF IT CONTAINS VALUE  -->
 				{#if publishedBlogs.length}
 					<div class="flex w-full flex-col items-center justify-center gap-2 lg:flex-row">
-						<ManageBlogTable data={publishedBlogs} published />
+						<ManageBlogTable data={publishedBlogs} published {onDataChange} />
 					</div>
 				{:else}
 					<!-- ELSE SHOW 404 -->
@@ -76,7 +77,7 @@
 				<!-- IF TAB INDEX IS NOT 0 && IT CONTAINS VALUE  -->
 			{:else if draftedBlogs.length}
 				<div class="flex w-full flex-col items-center justify-center gap-2 lg:flex-row">
-					<ManageBlogTable data={draftedBlogs} published={false} />
+					<ManageBlogTable data={draftedBlogs} published={false} {onDataChange} />
 				</div>
 			{:else}
 				<!-- ELSE SHOW 404 -->

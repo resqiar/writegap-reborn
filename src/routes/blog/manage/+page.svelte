@@ -1,9 +1,9 @@
 <script lang="ts">
+	import getCurrentBlogs from '../../../libs/GetCurrentBlogs';
 	import ManageBlogBody from '../../../components/body/ManageBlogBody.svelte';
 	import MainHeader from '../../../components/header/MainHeader.svelte';
-	import type { IBlog } from '../../../types/Blog';
-
 	import type UserProfile from '../../../types/UserProfile';
+	import type { IBlog } from '../../../types/Blog';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -12,10 +12,25 @@
 	// @see ./+page.server.ts
 	let profile: UserProfile = data.user;
 	let blogs: IBlog[] = data.blogs;
-
 	let error: boolean = data.error ? data.error : false;
-	let publishedBlogs = blogs.filter((v) => v.Published);
-	let draftedBlogs = blogs.filter((v) => !v.Published);
+
+	/**
+	 * Reactively filters the 'blogs' array into two separate arrays.
+	 * 'publishedBlogs' contains blogs with the 'Published' property set to true.
+	 * 'draftedBlogs' contains blogs with the 'Published' property set to false.
+	 * The "$" sign is basically the same function as useEffect.
+	 */
+	$: publishedBlogs = blogs.filter((v) => v.Published);
+	$: draftedBlogs = blogs.filter((v) => !v.Published);
+
+	// Handles the data change by fetching the current blogs and updating the 'blogs' variable.
+	// @returns {Promise<void>} A promise that resolves when the data change is handled.
+	async function handleDataChange(): Promise<void> {
+		const newData: IBlog[] | undefined = await getCurrentBlogs();
+
+		// If new data is available, update the 'blogs' variable
+		if (newData) blogs = newData;
+	}
 </script>
 
 <svelte:head>
@@ -26,5 +41,5 @@
 	<MainHeader active={1} user={profile} />
 
 	<!-- Body -->
-	<ManageBlogBody {publishedBlogs} {draftedBlogs} {error} />
+	<ManageBlogBody {publishedBlogs} {draftedBlogs} {error} onDataChange={handleDataChange} />
 </header>

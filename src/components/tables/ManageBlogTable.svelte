@@ -1,30 +1,57 @@
 <script lang="ts">
+	import publishBlog from '../../libs/PublishBlog';
+	import unpublishBlog from '../../libs/UnpublishBlog';
 	import type { ManageAction } from '../../data/modalActionState';
 	import type { IBlog } from '../../types/Blog';
 	import ManageModal from '../modal/ManageModal.svelte';
 
 	export let data: IBlog[];
 	export let published: boolean;
+	export let onDataChange: () => void = () => {};
 
 	let actionID: string;
 	let actionModal: boolean = false;
 	let actionState: ManageAction;
+	let actionError: string = '';
 
-	async function handleOnSubmit() {
+	/**
+	 * Handles the data submission based on the 'actionState' value.
+	 * Performs different actions based on the selected action state.
+	 * Updates the UI and triggers data change if necessary.
+	 */
+	async function handleOnSubmit(): Promise<void> {
 		switch (actionState) {
 			case 'unpublish':
-				console.log(actionID);
-				console.log('UNPUBLISH');
+				// Call the 'unpublishBlog' function and handle the result
+				const unpublishState = await unpublishBlog(actionID);
+
+				// if unpublishState result is 'true'
+				if (unpublishState) {
+					actionModal = false;
+					return onDataChange();
+				}
+
+				// otherwise, show error
+				actionError = 'Error when unpublishing your blog, please try again later!';
 				break;
 
 			case 'publish':
-				console.log(actionID);
-				console.log('PUBLISH');
+				// Call the 'publishBlog' function and handle the result
+				const publishState = await publishBlog(actionID);
+
+				// if unpublishState result is 'true'
+				if (publishState) {
+					actionModal = false; // close modal
+					return onDataChange(); // call parent callback function
+				}
+
+				// otherwise, show error
+				actionError = 'Error when publishing your blog, please try again later!';
 				break;
 
 			case 'edit':
-				console.log(actionID);
-				console.log('EDIT');
+				// redirect to the edit page for the specified blog
+				window.location.href = `/blog/edit/${actionID}`;
 				break;
 
 			case 'remove':
@@ -195,9 +222,13 @@
 
 	<!-- CONFIRMATION DIALOG -->
 	<ManageModal
+		{actionState}
 		on:click={handleOnSubmit}
 		status={actionModal}
-		{actionState}
-		handleOnCancel={() => (actionModal = false)}
+		error={actionError}
+		handleOnCancel={() => {
+			actionError = '';
+			actionModal = false;
+		}}
 	/>
 </div>
