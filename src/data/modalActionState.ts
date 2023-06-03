@@ -3,7 +3,7 @@ export type ManageAction = 'unpublish' | 'publish' | 'edit' | 'remove';
 export const manageActionModal: Record<ManageAction, { title: string; desc: string }> = {
 	unpublish: {
 		title: 'Confirm Unpublishing',
-		desc: 'Are you sure you want to unpublish? This action cannot be undone.'
+		desc: 'Please confirm your intention to unpublish. When a blog is unpublished, it becomes inaccessible to other users.'
 	},
 	publish: {
 		title: 'Confirm Publishing',
