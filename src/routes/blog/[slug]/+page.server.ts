@@ -1,6 +1,10 @@
 import { PUBLIC_SERVER_URL } from '$env/static/public';
 import { error, type ServerLoadEvent } from '@sveltejs/kit';
+import { compile } from 'mdsvex';
 import type UserProfile from '../../../types/UserProfile';
+
+import rehypeSanitize from 'rehype-sanitize';
+import remarkGfm from 'remark-gfm';
 
 export async function load({ fetch, params }: ServerLoadEvent) {
 	let blogID = params.slug;
@@ -29,8 +33,12 @@ export async function load({ fetch, params }: ServerLoadEvent) {
 			userProfile = res.result;
 		}
 
-		// get blog result value from the fulfilled request
+		// Extract the result value from the fulfilled request
 		const { result } = await blogReq.value.json();
+
+		// Compile the Markdown content and bind the compiled
+		// back into the result content.
+		result.Content = await compileMD(result.Content);
 
 		return {
 			user: userProfile,
@@ -39,4 +47,23 @@ export async function load({ fetch, params }: ServerLoadEvent) {
 	} catch (err) {
 		throw error(404);
 	}
+}
+
+/**
+ * Compiles raw Markdown content using mdsvex
+ * along with defined remark and rehype plugins.
+ *
+ * @param {string} raw - The raw Markdown content to compile.
+ * @returns {Promise<string>} - The compiled Markdown content.
+ */
+async function compileMD(raw: string): Promise<string> {
+	const remarkPlugins: any[] = [remarkGfm];
+	const rehypePlugins: any[] = [rehypeSanitize];
+
+	const compiled = await compile(raw, {
+		remarkPlugins: remarkPlugins,
+		rehypePlugins: rehypePlugins
+	});
+
+	return compiled ? compiled.code : '';
 }
