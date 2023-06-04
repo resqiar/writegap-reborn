@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { IBlog } from '../../types/Blog';
+	import type { ISafeBlog } from '../../types/Blog';
 	import SimpleHero from '../hero/SimpleHero.svelte';
 
-	export let blogs: IBlog[] = [];
+	export let blogs: ISafeBlog[] = [];
 	export let isError: boolean = false;
 </script>
 

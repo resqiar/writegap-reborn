@@ -1,10 +1,11 @@
 import { PUBLIC_SERVER_URL } from '$env/static/public';
 import type { ServerLoadEvent } from '@sveltejs/kit';
 import type UserProfile from '../../types/UserProfile';
+import type { ISafeBlog } from '../../types/Blog';
 
 export async function load({ fetch, cookies }: ServerLoadEvent) {
 	let user: UserProfile | null = null;
-	let blogs: any[] = [];
+	let blogs: ISafeBlog[] = [];
 	let error: boolean = false;
 
 	// Get session_id from cookies
