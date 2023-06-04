@@ -4,6 +4,7 @@ export interface IBlog {
 	ID: string;
 	CreatedAt: string;
 	UpdatedAt: string;
+	PublishedAt: string;
 	DeletedAt: string | null;
 	Title: string;
 	Summary: string;
@@ -16,6 +17,7 @@ export interface IBlog {
 export interface ISafeBlog {
 	ID: string;
 	CreatedAt: string;
+	PublishedAt: string;
 	UpdatedAt: string;
 	Title: string;
 	Summary: string;
