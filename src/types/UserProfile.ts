@@ -7,3 +7,12 @@ export default interface UserProfile {
 	Bio: string;
 	PictureURL: string;
 }
+
+export interface ISafeUser {
+	ID: string;
+	CreatedAt: string;
+	UpdatedAt: string;
+	Username: string;
+	Bio: string;
+	PictureURL: string;
+}
