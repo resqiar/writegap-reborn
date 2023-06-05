@@ -1,11 +1,11 @@
 import { PUBLIC_SERVER_URL } from '$env/static/public';
 import type { ServerLoadEvent } from '@sveltejs/kit';
 import type UserProfile from '../../types/UserProfile';
-import type { ISafeBlog } from '../../types/Blog';
+import type { ISafeBlogAuthor } from '../../types/Blog';
 
 export async function load({ fetch, cookies }: ServerLoadEvent) {
 	let user: UserProfile | null = null;
-	let blogs: ISafeBlog[] = [];
+	let blogs: ISafeBlogAuthor[] = [];
 	let error: boolean = false;
 
 	// Get session_id from cookies
@@ -47,7 +47,7 @@ export async function load({ fetch, cookies }: ServerLoadEvent) {
 				// Sort the 'result' array of blog posts based on the 'PublishedAt' property
 				// The sorting is done in descending order, from newest -> oldest
 				result.sort(
-					(a: ISafeBlog, b: ISafeBlog) =>
+					(a: ISafeBlogAuthor, b: ISafeBlogAuthor) =>
 						new Date(b.PublishedAt).getTime() - new Date(a.PublishedAt).getTime()
 				);
 

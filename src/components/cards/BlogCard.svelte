@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { ISafeBlog } from '../../types/Blog';
+	import type { ISafeBlogAuthor } from '../../types/Blog';
 
-	export let item: ISafeBlog;
+	export let item: ISafeBlogAuthor;
 
 	let showSummary: boolean = false;
 </script>
@@ -21,16 +21,26 @@
 
 		<div class="my-2">
 			<div class="flex items-center gap-2">
-				<div class="placeholder avatar">
-					<div class="w-10 rounded-full bg-neutral-focus text-neutral-content">
-						<span class="text-xl">K</span>
+				{#if item.Author.PictureURL}
+					<div class="avatar">
+						<div class="w-8 rounded-full lg:w-10">
+							<img src={item.Author.PictureURL} alt="Author" />
+						</div>
 					</div>
-				</div>
+				{:else}
+					<div class="placeholder avatar">
+						<div class="w-10 rounded-full bg-neutral-focus text-neutral-content">
+							<span class="text-xl">{item.Author.Username[0]}</span>
+						</div>
+					</div>
+				{/if}
 
 				<div>
-					<p class="text-sm font-semibold">The Author Name</p>
+					<p class="text-sm font-bold">{item.Author.Username}</p>
 					<p class="text-sm">
-						published at <span class="font-semibold">{new Date().toDateString()}</span>
+						published at <span class="font-semibold"
+							>{new Date(item.PublishedAt).toDateString()}</span
+						>
 					</p>
 				</div>
 			</div>

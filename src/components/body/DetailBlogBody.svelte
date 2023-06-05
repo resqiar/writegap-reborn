@@ -15,11 +15,19 @@
 
 		<div class="my-4 flex items-center justify-between gap-2 rounded bg-base-300 p-2 py-4 lg:p-4">
 			<div class="flex items-center gap-2">
-				<div class="avatar">
-					<div class="w-8 rounded-full lg:w-10">
-						<img src={blog.Author.PictureURL} alt="Author" />
+				{#if blog.Author.PictureURL}
+					<div class="avatar">
+						<div class="w-8 rounded-full lg:w-10">
+							<img src={blog.Author.PictureURL} alt="Author" />
+						</div>
 					</div>
-				</div>
+				{:else}
+					<div class="placeholder avatar">
+						<div class="w-10 rounded-full bg-neutral-focus text-neutral-content">
+							<span class="text-xl">{blog.Author.Username[0]}</span>
+						</div>
+					</div>
+				{/if}
 
 				<div>
 					<p class="font-bold">{blog.Author.Username}</p>

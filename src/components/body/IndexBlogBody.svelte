@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { ISafeBlog } from '../../types/Blog';
+	import type { ISafeBlogAuthor } from '../../types/Blog';
 	import BlogCard from '../cards/BlogCard.svelte';
 	import SimpleHero from '../hero/SimpleHero.svelte';
 
-	export let blogs: ISafeBlog[] = [];
+	export let blogs: ISafeBlogAuthor[] = [];
 	export let isError: boolean = false;
 </script>
 
