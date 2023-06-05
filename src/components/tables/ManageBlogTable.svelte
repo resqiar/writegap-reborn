@@ -82,7 +82,13 @@
 			{#each data as item}
 				<tr>
 					<td>
-						<p>{item.ID}</p>
+						{#if published}
+							<!-- IF PUBLISH STATUS IS TRUE, SET THE ID AS LINK -->
+							<a href={`/blog/${item.ID}`} class="text-sm hover:underline">{item.ID}</a>
+						{:else}
+							<!-- OTHERWISE, SET AS A PLAIN TEXT -->
+							<p class="text-sm">{item.ID}</p>
+						{/if}
 					</td>
 					<td>
 						{#if item.CoverURL}
@@ -98,17 +104,17 @@
 						{/if}
 					</td>
 					<td>
-						<p>{item.Title}</p>
-					</td>
-					<td>
-						<p
-							title="Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
-						>
-							{item.Summary ? item.Summary : '-'}
+						<p class="text-sm" title={item.Title}>
+							{item.Title.length > 25 ? item.Title.substring(0, 25) + '...' : item.Title}
 						</p>
 					</td>
 					<td>
-						<p>{new Date(item.CreatedAt).toDateString()}</p>
+						<p class="text-sm" title={item.Summary ? item.Summary : ''}>
+							{item.Summary ? item.Summary.substring(0, 50) + '...' : '-'}
+						</p>
+					</td>
+					<td>
+						<p class="text-sm">{new Date(item.CreatedAt).toDateString()}</p>
 					</td>
 					<td>
 						{#if published}
