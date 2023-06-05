@@ -14,12 +14,12 @@
 				will ignite your inspiration and leave you craving for more."
 	/>
 
-	<section class="mx-16 my-24">
+	<section class="mx-2 my-6 flex flex-col justify-center gap-4 lg:mx-16 lg:my-24 lg:flex-row">
 		{#if !isError}
 			<!-- IF THERE IS NO ERROR FETCHING USER DATA -->
 			<!-- THEN DISPLAY THE APROPRIATE COMPONENT -->
 			{#each blogs as item}
-				<div class="card w-96 bg-base-100 shadow-xl">
+				<div class="card w-96 flex-wrap bg-base-300 shadow-2xl">
 					<figure>
 						<img alt="Mockup Blog" src={item.CoverURL} class="max-h-[200px] w-full object-cover" />
 					</figure>
