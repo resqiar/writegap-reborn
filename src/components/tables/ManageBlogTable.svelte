@@ -14,6 +14,9 @@
 	let actionState: ManageAction;
 	let actionError: string = '';
 
+	// when data changes, sort them based on which one is the newest
+	$: data.sort((a, b) => new Date(b.CreatedAt).getTime() - new Date(a.CreatedAt).getTime());
+
 	/**
 	 * Handles the data submission based on the 'actionState' value.
 	 * Performs different actions based on the selected action state.

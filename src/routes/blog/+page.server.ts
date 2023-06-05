@@ -43,6 +43,14 @@ export async function load({ fetch, cookies }: ServerLoadEvent) {
 
 			if (blogRes.status === 'fulfilled') {
 				const { result } = await blogRes.value.json();
+
+				// Sort the 'result' array of blog posts based on the 'PublishedAt' property
+				// The sorting is done in descending order, from newest -> oldest
+				result.sort(
+					(a: ISafeBlog, b: ISafeBlog) =>
+						new Date(b.PublishedAt).getTime() - new Date(a.PublishedAt).getTime()
+				);
+
 				blogs = result;
 			} else {
 				error = true;
