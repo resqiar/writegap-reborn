@@ -11,7 +11,7 @@
 		<div class="w-full lg:max-w-[600px] lg:pr-16">
 			<h1 class="justify text-2xl font-bold lg:text-5xl lg:leading-[60px]">
 				<!-- Crafting cutting-edge softwares and delivering exceptional DX/UX. -->
-				<span>Hello World!</span>
+				<span class="lg:text-6xl">Hello World!</span>
 				<br />
 				Greetings!, Hi!, Halo!, Apa Kabar?
 			</h1>
