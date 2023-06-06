@@ -55,7 +55,7 @@
 		{#if item.Summary.length > 80}
 			<div class="mt-2 flex justify-center text-sm hover:underline">
 				{#if !showSummary}
-					<button class="flex items-end gap-1" on:click={() => (showSummary = true)}>
+					<button class="flex items-end gap-1" on:click|preventDefault={() => (showSummary = true)}>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -73,7 +73,10 @@
 						See More</button
 					>
 				{:else}
-					<button class="flex items-start gap-1" on:click={() => (showSummary = false)}>
+					<button
+						class="flex items-start gap-1"
+						on:click|preventDefault={() => (showSummary = false)}
+					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
