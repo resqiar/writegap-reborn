@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { PageData } from '../../../../../.svelte-kit/types/src/routes/blog/edit/[slug]/$types';
+	import EditBlogBody from '../../../../components/body/EditBlogBody.svelte';
+	import MainHeader from '../../../../components/header/MainHeader.svelte';
 	import type { ISafeBlogAuthor } from '../../../../types/Blog';
 	import type UserProfile from '../../../../types/UserProfile';
 
@@ -15,4 +17,9 @@
 	<title>Editing "{blog.Title}" | Resdev</title>
 </svelte:head>
 
-<h1>{profile.ID}</h1>
+<header>
+	<MainHeader active={1} user={profile} />
+
+	<!-- Body -->
+	<EditBlogBody {blog} />
+</header>
