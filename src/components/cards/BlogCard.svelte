@@ -38,10 +38,18 @@
 				<div>
 					<p class="text-sm font-bold">{item.Author.Username}</p>
 					<p class="text-sm">
-						published at <span class="font-semibold"
-							>{new Date(item.PublishedAt).toDateString()}</span
-						>
+						Published <span class="font-semibold">{new Date(item.PublishedAt).toDateString()}</span>
 					</p>
+
+					<!-- IF THE BLOG IS UPDATED AT LEAST 1 SEC AFTER PUBLICATION -->
+					<!-- THEN SHOW THE LAST UPDATED MESSAGE -->
+					{#if new Date(item.UpdatedAt).getTime() - new Date(item.PublishedAt).getTime() > 1000}
+						<p class="text-sm">
+							Last updated <span class="font-semibold"
+								>{new Date(item.UpdatedAt).toDateString()}</span
+							>
+						</p>
+					{/if}
 				</div>
 			</div>
 		</div>

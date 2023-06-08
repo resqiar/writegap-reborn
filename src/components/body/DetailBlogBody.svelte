@@ -17,13 +17,13 @@
 			<div class="flex items-center gap-2">
 				{#if blog.Author.PictureURL}
 					<div class="avatar">
-						<div class="w-8 rounded-full lg:w-10">
+						<div class="w-10 rounded-full lg:w-12">
 							<img src={blog.Author.PictureURL} alt="Author" />
 						</div>
 					</div>
 				{:else}
 					<div class="placeholder avatar">
-						<div class="w-10 rounded-full bg-neutral-focus text-neutral-content">
+						<div class="w-10 rounded-full bg-neutral-focus text-neutral-content lg:w-12">
 							<span class="text-xl">{blog.Author.Username[0]}</span>
 						</div>
 					</div>
@@ -31,11 +31,23 @@
 
 				<div>
 					<p class="font-bold">{blog.Author.Username}</p>
-					<p class="text-sm">
-						published at <span class="font-semibold"
-							>{new Date(blog.PublishedAt).toDateString()}</span
-						>
-					</p>
+					<div class="flex flex-col items-center lg:flex-row">
+						<p class="text-xs lg:text-sm">
+							published at <span class="font-semibold"
+								>{new Date(blog.PublishedAt).toDateString()}</span
+							>
+						</p>
+
+						<!-- IF THE BLOG IS UPDATED AT LEAST 1 SEC AFTER PUBLICATION -->
+						<!-- THEN SHOW THE LAST UPDATED MESSAGE -->
+						{#if new Date(blog.UpdatedAt).getTime() - new Date(blog.PublishedAt).getTime() > 1000}
+							<span class="mx-1 hidden lg:flex">&#x2022</span>
+							<p class="text-xs lg:text-sm">
+								Last updated
+								<span class="font-semibold">{new Date(blog.UpdatedAt).toDateString()}</span>
+							</p>
+						{/if}
+					</div>
 				</div>
 			</div>
 
