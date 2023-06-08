@@ -4,6 +4,7 @@
 	export let desc: string = '';
 	export let error: string = '';
 	export let loading: boolean = false;
+	export let confirmButtonMessage: string = 'Create';
 </script>
 
 <input type="checkbox" {id} class="modal-toggle" />
@@ -41,7 +42,9 @@
 				on:click={() => (error = '')}
 				class="btn-ghost btn">Cancel</label
 			>
-			<button on:click class={`btn-ghost btn ${loading ? 'loading' : ''}`}>Create</button>
+			<button on:click class={`btn-ghost btn ${loading ? 'loading' : ''}`}
+				>{confirmButtonMessage}</button
+			>
 		</div>
 	</label>
 </label>

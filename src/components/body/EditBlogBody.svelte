@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
+	import { handleBlogUpdate } from '../../libs/UpdateBlog';
 	import type { ISafeBlogAuthor } from '../../types/Blog';
 	import ConfirmationModal from '../modal/ConfirmationModal.svelte';
 	import ImageDropzone from '../others/ImageDropzone.svelte';
 
 	export let blog: ISafeBlogAuthor;
 
+	let ID: string = blog.ID;
 	let title: string = blog.Title;
 	let summary: string = blog.Summary;
 	let content: string = blog.Content;
@@ -13,6 +15,39 @@
 	let preview: string | ArrayBuffer | null = blog.CoverURL;
 	let errorMessage: string = '';
 	let saveLoading: boolean = false;
+
+	$: if (imageFile) {
+		const previewReader: FileReader = new FileReader();
+
+		previewReader.onloadend = () => {
+			// set image preview URL
+			preview = previewReader.result;
+		};
+
+		previewReader.readAsDataURL(imageFile);
+	}
+
+	async function updateBlog() {
+		// call server to create the blog,
+		// the default value of published is always false.
+		// So if we need to publish the blog, then we need to manually
+		// publish in different route.
+		const success = await handleBlogUpdate({
+			blogID: ID,
+			title,
+			summary,
+			content,
+			image: imageFile,
+			onLoadingStart: () => (saveLoading = true),
+			onLoadingEnd: () => (saveLoading = false),
+			onError: () => (errorMessage = 'Something went wrong, please try again later!')
+		});
+
+		// for now just redirect to manage blog when creating only a draft
+		// in the future, it is a good way to handle successful with
+		// displaying a success message.
+		if (success) return (window.location.href = '/blog/manage');
+	}
 </script>
 
 <main class="mb-32 px-4 py-8 lg:px-24">
@@ -98,7 +133,7 @@
 					<div>
 						<img
 							class="max-h-[500px] w-full rounded-lg object-cover"
-							src={blog.CoverURL}
+							src={preview.toString()}
 							alt="preview"
 						/>
 					</div>
@@ -206,8 +241,10 @@
 								id="update-modal"
 								title="Save Changes?"
 								desc="Saving the update will instantly affect the blog, whether it is published or not."
+								confirmButtonMessage="Save"
 								error={errorMessage}
 								loading={saveLoading}
+								on:click={updateBlog}
 							/>
 						</div>
 					</div>
