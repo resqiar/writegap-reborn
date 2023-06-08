@@ -5,7 +5,7 @@
 	import { browser } from '$app/environment';
 </script>
 
-<div class="mb-16">
+<div>
 	<!-- Hero -->
 	<MainHero />
 
@@ -74,6 +74,33 @@
 					</div>
 				</div>
 			{/each}
+		</div>
+	</div>
+
+	<div class="flex w-full flex-col items-center bg-base-300 px-4 py-8 lg:px-28 lg:py-28">
+		<div class="my-8">
+			<h1 class="text-4xl font-bold">Statistic Speaks for Itself</h1>
+
+			<img
+				src="https://wakatime.com/badge/user/e1e04b0c-4ecc-489e-b9aa-00c30a1aab60.svg"
+				alt="Total Hours"
+				class="mb-4 mt-1"
+			/>
+
+			<p>
+				Wakatime count and generates insightful charts based on my programming activities and the
+				tools I've used over time. Details are available in my account.
+			</p>
+			<a href="https://wakatime.com/@resqiar" class="text-primary hover:underline"
+				>See Wakatime account detail</a
+			>
+		</div>
+
+		<div>
+			<img
+				alt="Wakatime Stats"
+				src="https://github-readme-stats.vercel.app/api/wakatime?username=resqiar&theme=midnight-purple&layout=compact"
+			/>
 		</div>
 	</div>
 </div>

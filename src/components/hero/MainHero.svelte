@@ -17,8 +17,8 @@
 			</h1>
 
 			<p class="py-6 leading-6">
-				A <strong>Software Developer</strong> from a beautiful country of Indonesia 🇮🇩. <br /> I specialize
-				but not limited in building Web and Server development.
+				I am a <strong>Software Developer</strong> from a beautiful country of Indonesia 🇮🇩. <br /> I
+				specialize but not limited in building Web and Server environtment.
 			</p>
 
 			<div class="flex flex-row gap-2">

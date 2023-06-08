@@ -15,9 +15,9 @@ import {
 
 export const showcaseData = [
 	{
-		title: 'Hey this page! Resdev.com was built by myself ❤️‍🔥🎊',
+		title: 'Resdev.com',
 		description:
-			'My personal page where it becomes the place I want to share all the knowledges, thoughts, and everything in between.',
+			'My personal page where it becomes the place I want to share all the knowledges, thoughts, playground and everything in between.',
 		images: ['/media/algo.png'],
 		sourceURL: 'https://github.com/resqiar/resdev',
 		techs: [svelte, typescript, tailwind, golang, postgres]
