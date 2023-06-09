@@ -12,29 +12,19 @@ export async function load({ fetch, cookies }: ServerLoadEvent) {
 	if (!session_id) throw redirect(307, '/auth');
 
 	try {
-		const [userReq, admReq] = await Promise.allSettled([
-			fetch(`${PUBLIC_SERVER_URL}/user/profile`),
-			fetch(`${PUBLIC_SERVER_URL}/auth/status/adm`, {
-				method: 'POST'
-			})
-		]);
+		const userReq = await fetch(`${PUBLIC_SERVER_URL}/user/profile`);
 
 		// if request status is not 200 (OK)
 		// throw error, the catched error then redirect
 		// user to auth page
-		if (userReq.status === 'rejected' || !userReq.value.ok) throw Error();
+		if (!userReq.ok) throw Error();
 
-		const res = await userReq.value.json();
+		const res = await userReq.json();
 		const userProfile: UserProfile = res.result;
 
 		return {
 			user: userProfile,
-			// if adm request is fulfilled
-			// and if the request made is ok meaning it
-			// return 200, not 401, 404, 500
-			// otherwise, the request of adm is rejected,
-			// or the status is else of 200
-			eligible: admReq.status === 'fulfilled' && admReq.value.ok
+			eligible: userProfile.IsTester
 		};
 	} catch (error) {
 		throw redirect(307, '/auth');

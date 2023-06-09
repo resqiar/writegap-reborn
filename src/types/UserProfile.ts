@@ -6,6 +6,7 @@ export default interface UserProfile {
 	Email: string;
 	Bio: string;
 	PictureURL: string;
+	IsTester: boolean;
 }
 
 export interface ISafeUser {
