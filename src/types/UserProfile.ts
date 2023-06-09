@@ -15,4 +15,5 @@ export interface ISafeUser {
 	Username: string;
 	Bio: string;
 	PictureURL: string;
+	IsTester: boolean;
 }

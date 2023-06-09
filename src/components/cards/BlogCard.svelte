@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { ISafeBlogAuthor } from '../../types/Blog';
+	import TesterBadge from '../badges/TesterBadge.svelte';
 
 	export let item: ISafeBlogAuthor;
 
@@ -36,7 +37,16 @@
 				{/if}
 
 				<div>
-					<p class="text-sm font-bold">{item.Author.Username}</p>
+					<div class="flex items-center">
+						<p class="text-sm font-bold">{item.Author.Username}</p>
+
+						<!-- SHOW USER BADGES -->
+						{#if item.Author.IsTester}
+							<span class="mx-1 flex">&#x2022</span>
+							<TesterBadge />
+						{/if}
+					</div>
+
 					<p class="text-sm">
 						Published <span class="font-semibold">{new Date(item.PublishedAt).toDateString()}</span>
 					</p>
@@ -44,7 +54,7 @@
 					<!-- IF THE BLOG IS UPDATED AT LEAST 1 SEC AFTER PUBLICATION -->
 					<!-- THEN SHOW THE LAST UPDATED MESSAGE -->
 					{#if new Date(item.UpdatedAt).getTime() - new Date(item.PublishedAt).getTime() > 1000}
-						<p class="text-sm">
+						<p class="text-xs">
 							Last updated <span class="font-semibold"
 								>{new Date(item.UpdatedAt).toDateString()}</span
 							>

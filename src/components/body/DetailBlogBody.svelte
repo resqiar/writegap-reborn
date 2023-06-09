@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { ISafeBlogAuthor } from '../../types/Blog';
 	import '../../styles/mdeditor.css';
+	import TesterBadge from '../badges/TesterBadge.svelte';
 
 	export let blog: ISafeBlogAuthor;
 </script>
@@ -17,7 +18,7 @@
 			<div class="flex items-center gap-2">
 				{#if blog.Author.PictureURL}
 					<div class="avatar">
-						<div class="w-10 rounded-full lg:w-12">
+						<div class="w-8 rounded-full lg:w-12">
 							<img src={blog.Author.PictureURL} alt="Author" />
 						</div>
 					</div>
@@ -30,8 +31,19 @@
 				{/if}
 
 				<div>
-					<p class="font-bold">{blog.Author.Username}</p>
-					<div class="flex flex-col items-center lg:flex-row">
+					<div class="flex items-center gap-1">
+						<p class="text-sm font-bold">{blog.Author.Username}</p>
+
+						<!-- SHOW BADGES -->
+						{#if blog.Author.IsTester}
+							<span class="mx-1 hidden lg:flex">&#x2022</span>
+							<div class="hidden lg:flex">
+								<TesterBadge />
+							</div>
+						{/if}
+					</div>
+
+					<div class="flex flex-col lg:flex-row lg:items-center">
 						<p class="text-xs lg:text-sm">
 							published at <span class="font-semibold"
 								>{new Date(blog.PublishedAt).toDateString()}</span
