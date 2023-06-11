@@ -7,7 +7,7 @@ import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 
 /**
- * Compiles raw Markdown content using mdsvex
+ * Compiles raw Markdown content using unified
  * along with defined remark and rehype plugins.
  *
  * @param {string} raw - The raw Markdown content to compile.
