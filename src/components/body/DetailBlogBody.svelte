@@ -3,6 +3,9 @@
 	import '../../styles/mdeditor.css';
 	import TesterBadge from '../badges/TesterBadge.svelte';
 
+	// highlight.js StyleSheet
+	import '../../styles/highlighter/vs.css';
+
 	export let blog: ISafeBlogAuthor;
 </script>
 
