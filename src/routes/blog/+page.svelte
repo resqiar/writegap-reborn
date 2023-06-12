@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import { themeChange } from 'theme-change';
+	import { onMount } from 'svelte';
 
 	import IndexBlogBody from '../../components/body/IndexBlogBody.svelte';
 	import MainHeader from '../../components/header/MainHeader.svelte';
@@ -10,6 +12,11 @@
 	// Profile data derived from the SSR process
 	// @see ./+page.server.ts
 	let profile: UserProfile | null = data.user;
+
+	// Mount saved theme from local storage
+	onMount(async () => {
+		themeChange(false);
+	});
 </script>
 
 <svelte:head>

@@ -3,6 +3,7 @@
 
 	import Logo from '../brand/Logo.svelte';
 	import MainMenu from '../menu/MainMenu.svelte';
+	import ThemeChangeMenu from '../menu/ThemeChangeMenu.svelte';
 
 	export let active: number = 0;
 	const page = [
@@ -91,5 +92,8 @@
 				/>
 			</svg>
 		</a>
+
+		<!-- THEME CHANGE MENU -->
+		<ThemeChangeMenu />
 	</div>
 </div>

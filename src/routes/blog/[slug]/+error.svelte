@@ -1,3 +1,13 @@
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import { themeChange } from 'theme-change';
+
+	// Mount saved theme from local storage
+	onMount(async () => {
+		themeChange(false);
+	});
+</script>
+
 <svelte:head>
 	<title>Not Found</title>
 </svelte:head>

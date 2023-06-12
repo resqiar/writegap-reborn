@@ -2,6 +2,8 @@
 	import getCurrentBlogs from '../../../libs/GetCurrentBlogs';
 	import ManageBlogBody from '../../../components/body/ManageBlogBody.svelte';
 	import MainHeader from '../../../components/header/MainHeader.svelte';
+	import { onMount } from 'svelte';
+	import { themeChange } from 'theme-change';
 	import type UserProfile from '../../../types/UserProfile';
 	import type { IBlog } from '../../../types/Blog';
 	import type { PageData } from './$types';
@@ -31,6 +33,11 @@
 		// If new data is available, update the 'blogs' variable
 		if (newData) blogs = newData;
 	}
+
+	// Mount saved theme from local storage
+	onMount(async () => {
+		themeChange(false);
+	});
 </script>
 
 <svelte:head>
