@@ -6,6 +6,7 @@
   font-size: 16px;
   line-height: 1.5;
   word-wrap: break-word;
+  font-family: inherit;
 }
 
 .markdown-body .octicon {
@@ -55,7 +56,7 @@
 
 .markdown-body h1 {
   margin: 0.67em 0;
-  font-weight: blog;
+  font-weight: bold;
   padding-bottom: 0.3em;
   font-size: 2em;
 }
@@ -237,7 +238,7 @@
   margin-bottom: 16px;
   font-weight: 600;
   line-height: 1.25;
-  color: #330033;
+  color: inherit;
 }
 
 .markdown-body h2 {
@@ -648,11 +649,11 @@
 .markdown-body table th,
 .markdown-body table td {
   padding: 6px 13px;
-  border: 1px solid #200020;
+  border: 1px solid #888;
 }
 
 .markdown-body table tr {
-  background-color: #ffffff;
+  background-color: transparent;
   border-top: 1px solid hsla(210, 18%, 87%, 1);
 }
 
@@ -786,7 +787,7 @@
 
 .markdown-body pre code {
   font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .markdown-body pre > code {
@@ -813,8 +814,12 @@
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  background-color: #f6f8fa;
+  background-color: #161b22;
   border-radius: 6px;
+}
+
+.markdown-body pre code {
+  padding: 4px 0px !important;
 }
 
 .markdown-body pre code,

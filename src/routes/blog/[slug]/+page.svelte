@@ -24,7 +24,7 @@
 </script>
 
 <svelte:head>
-	<title>{blog.Title} | Resdev's Blog</title>
+	<title>{blog.Title} by {blog.Author.Username} | Resdev</title>
 </svelte:head>
 
 <header>

@@ -1,0 +1,38 @@
+.bytemd{
+  height: 500px;
+}
+
+.bytemd, .bytemd-toolbar, .bytemd-body, .bytemd-editor, .CodeMirror {
+  color: inherit;
+  background-color: transparent;
+  font-family: inherit;
+}
+
+[data-theme="lofi"]  .bytemd-fullscreen {
+  background-color: #fff;
+}
+
+[data-theme="corporate"]  .bytemd-fullscreen {
+  background-color: #fff;
+}
+
+[data-theme="cyberpunk"]  .bytemd-fullscreen {
+  background-color: yellow;
+}
+
+
+[data-theme="forest"]  .bytemd-fullscreen {
+  background-color: #000;
+}
+
+[data-theme="black"]  .bytemd-fullscreen {
+  background-color: #000;
+}
+
+[data-theme="luxury"]  .bytemd-fullscreen {
+  background-color: rgb(9, 9, 11);
+}
+
+[data-theme="night"]  .bytemd-fullscreen {
+  background-color: rgb(15, 23, 41);
+}

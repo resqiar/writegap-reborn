@@ -4,7 +4,7 @@
 	import TesterBadge from '../badges/TesterBadge.svelte';
 
 	// highlight.js StyleSheet
-	import '../../styles/highlighter/vs.css';
+	import '../../styles/highlighter/atom-one-dark.css';
 
 	export let blog: ISafeBlogAuthor;
 </script>

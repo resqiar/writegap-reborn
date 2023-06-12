@@ -4,10 +4,11 @@
 	// plugins
 	import gfm from '@bytemd/plugin-gfm';
 	import highlight from '@bytemd/plugin-highlight-ssr';
-	import 'highlight.js/styles/default.css';
+	import '../../styles/highlighter/atom-one-dark.css';
 
 	import 'bytemd/dist/index.css';
 	import '../../styles/mdeditor.css';
+	import '../../styles/custom-bytemd.css';
 
 	export let content: string = '';
 	export let handleContentChange: (e: any) => void;
