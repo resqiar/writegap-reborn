@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite dev --port 3131",
     "build": "vite build",
-    "preview": "vite preview --port 3131",
+    "preview": "vite preview",
     "test": "playwright test",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
