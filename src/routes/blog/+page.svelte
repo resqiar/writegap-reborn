@@ -20,7 +20,7 @@
 </script>
 
 <svelte:head>
-	<title>Resdev's Blog</title>
+	<title>ResqiAR's Blog Collection</title>
 </svelte:head>
 
 <header>

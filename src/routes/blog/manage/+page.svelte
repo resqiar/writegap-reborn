@@ -41,7 +41,7 @@
 </script>
 
 <svelte:head>
-	<title>Manage your blogs</title>
+	<title>Manage your blogs | ResqiAR</title>
 </svelte:head>
 
 <header>

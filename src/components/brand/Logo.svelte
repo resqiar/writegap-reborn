@@ -1,5 +1,5 @@
 <div class="">
-	<p id="logo">Resdev</p>
+	<p id="logo">ResqiAR</p>
 </div>
 
 <style>
@@ -7,8 +7,9 @@
 		margin: 0;
 		font-size: 32px;
 		font-family: 'Righteous', 'Roboto';
-		/* background: linear-gradient(90deg, #4e004e 1%, rgba(255, 144, 0, 1) 99%); */
-		background: rgba(255, 144, 0, 1);
+		background: linear-gradient(90deg, #4e004f 1%, rgba(255, 144, 0, 1) 75%);
+		/* background: rgba(255, 144, 0, 1); */
+		/* background: #4e004e; */
 
 		/* Set the background size and repeat properties. */
 		background-size: 100%;

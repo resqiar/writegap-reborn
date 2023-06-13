@@ -21,7 +21,7 @@
 </script>
 
 <svelte:head>
-	<title>Editing "{blog.Title}" | Resdev</title>
+	<title>Editing "{blog.Title}" | ResqiAR</title>
 </svelte:head>
 
 <header>

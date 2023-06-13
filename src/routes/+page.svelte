@@ -20,7 +20,7 @@
 </script>
 
 <svelte:head>
-	<title>Resdev | Blogs, Showcases and Playground</title>
+	<title>Blogs, Showcases and Playground | ResqiAR</title>
 </svelte:head>
 
 <main>

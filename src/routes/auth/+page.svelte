@@ -11,7 +11,7 @@
 
 <svelte:head>
 	<!-- head content -->
-	<title>Login or Register | Resdev</title>
+	<title>Login or Register | ResqiAR</title>
 </svelte:head>
 
 <main class="mt-16 flex min-h-screen w-full items-start justify-center lg:mt-0 lg:items-center">

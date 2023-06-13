@@ -15,10 +15,11 @@ import {
 
 export const showcaseData = [
 	{
-		title: 'Resdev.com',
+		title: 'resqiar.com',
 		description:
 			'My personal page where it becomes the place I want to share all the knowledges, thoughts, playground and everything in between.',
-		images: ['/media/algo.png'],
+		images: ['/media/resqiar-1.png', '/media/resqiar-2.png', '/media/resqiar-3.png'],
+		demoURL: 'https://resqiar.com',
 		sourceURL: 'https://github.com/resqiar/resdev',
 		techs: [svelte, typescript, tailwind, golang, postgres]
 	},

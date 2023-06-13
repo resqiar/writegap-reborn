@@ -22,7 +22,7 @@
 </script>
 
 <svelte:head>
-	<title>Create New Blog</title>
+	<title>Create a New Blog | ResqiAR</title>
 </svelte:head>
 
 <header>

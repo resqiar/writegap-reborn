@@ -15,8 +15,8 @@
 			<h1 class="text-2xl font-bold">Projects Showcase</h1>
 			<p class="mt-2 text-justify font-medium lg:max-w-[80%]">
 				Discover featured projects that I worked. From impressive websites, servers, AI, IoT, to
-				just sandbox. Please note that this is just a selection of our recent work; you can find
-				more projects in my <a href="https://github.com/resqiar" target="_blank" class="underline"
+				just sandbox. Please note that this is just a selection of my recent work; you can find more
+				projects in my <a href="https://github.com/resqiar" target="_blank" class="underline"
 					>GitHub repositories</a
 				>. Take a moment to explore, and feel free to reach out if you have any questions or
 				collaboration opportunities.
