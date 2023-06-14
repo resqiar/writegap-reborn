@@ -40,7 +40,7 @@
     "@bytemd/plugin-gfm": "^1.21.0",
     "@bytemd/plugin-highlight-ssr": "^1.21.0",
     "bytemd": "^1.21.0",
-    "daisyui": "^2.41.0",
+    "daisyui": "^2.51.6",
     "imagekit-javascript": "^1.5.5",
     "mdsvex": "^0.10.6",
     "nprogress": "^0.2.0",
