@@ -25,6 +25,9 @@ export async function load({ fetch, params }: ServerLoadEvent) {
 		// throw error, the catched error then redirect to 404 page
 		if (blogReq.status === 'rejected' || !blogReq.value.ok) throw Error();
 
+		console.log('BLOG', blogReq.status);
+		console.log('BLOG', blogReq.value.status);
+
 		if (userReq.status === 'fulfilled' && userReq.value.ok) {
 			const res = await userReq.value.json();
 			userProfile = res.result;
