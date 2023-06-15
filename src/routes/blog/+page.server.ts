@@ -50,14 +50,19 @@ export async function load({ fetch, cookies }: ServerLoadEvent) {
 			if (blogRes.status === 'fulfilled') {
 				const { result } = await blogRes.value.json();
 
-				// Sort the 'result' array of blog posts based on the 'PublishedAt' property
-				// The sorting is done in descending order, from newest -> oldest
-				result.sort(
-					(a: ISafeBlogAuthor, b: ISafeBlogAuthor) =>
-						new Date(b.PublishedAt).getTime() - new Date(a.PublishedAt).getTime()
-				);
+				// if blog is null, set it to empty
+				if (!result) {
+					blogs = [];
+				} else {
+					// Sort the 'result' array of blog posts based on the 'PublishedAt' property
+					// The sorting is done in descending order, from newest -> oldest
+					result.sort(
+						(a: ISafeBlogAuthor, b: ISafeBlogAuthor) =>
+							new Date(b.PublishedAt).getTime() - new Date(a.PublishedAt).getTime()
+					);
 
-				blogs = result;
+					blogs = result;
+				}
 			} else {
 				error = true;
 			}
