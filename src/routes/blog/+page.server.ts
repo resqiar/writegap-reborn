@@ -20,7 +20,13 @@ export async function load({ fetch, cookies }: ServerLoadEvent) {
 
 			if (req.ok) {
 				const { result } = await req.json();
-				blogs = result;
+
+				// if blog is null,  set it to empty
+				if (!result) {
+					blogs = [];
+				} else {
+					blogs = result;
+				}
 			} else {
 				error = true;
 			}
