@@ -13,7 +13,7 @@ import rehypeHighlight from 'rehype-highlight';
  * @param {string} raw - The raw Markdown content to compile.
  * @returns {Promise<string>} - The compiled Markdown content.
  */
-export async function parseMD(raw: string): Promise<string> {
+export default async function parseMD(raw: string): Promise<string> {
 	const parsed = unified()
 		.use(remarkParse)
 		.use(remarkRehype)
