@@ -1,4 +1,4 @@
-import { PUBLIC_SERVER_URL } from '$env/static/public';
+import { SERVER_URL } from '$env/static/private';
 import { error, type ServerLoadEvent } from '@sveltejs/kit';
 import type UserProfile from '../../../types/UserProfile';
 import { parseMD } from '../../../libs/ParseMarkdown';
@@ -9,8 +9,8 @@ export async function load({ fetch, params }: ServerLoadEvent) {
 
 	try {
 		const [userReq, blogReq] = await Promise.allSettled([
-			fetch(`${PUBLIC_SERVER_URL}/user/profile`),
-			fetch(`${PUBLIC_SERVER_URL}/blog/get`, {
+			fetch(`${SERVER_URL}/user/profile`),
+			fetch(`${SERVER_URL}/blog/get`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
