@@ -6,6 +6,7 @@
 	import MainBody from '../components/body/MainBody.svelte';
 	import MainHeader from '../components/header/MainHeader.svelte';
 	import type UserProfile from '../types/UserProfile';
+	import MetaHead from '../components/meta/MetaHead.svelte';
 
 	export let data: PageData;
 
@@ -19,9 +20,8 @@
 	});
 </script>
 
-<svelte:head>
-	<title>Blogs, Showcases and Playground | ResqiAR</title>
-</svelte:head>
+<!-- META TAG -->
+<MetaHead title="Blogs, Showcases and Playground | Resqiar.com" />
 
 <main>
 	<!-- Header -->

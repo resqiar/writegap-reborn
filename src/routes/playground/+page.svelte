@@ -2,6 +2,7 @@
 	import ComingSoonBody from '../../components/body/ComingSoonBody.svelte';
 	import { onMount } from 'svelte';
 	import { themeChange } from 'theme-change';
+	import MetaHead from '../../components/meta/MetaHead.svelte';
 
 	// Mount saved theme from local storage
 	onMount(async () => {
@@ -9,10 +10,8 @@
 	});
 </script>
 
-<svelte:head>
-	<!-- head content -->
-	<title>Coming Soon</title>
-</svelte:head>
+<!-- META TAG -->
+<MetaHead title="Coming Soon | Resqiar.com" />
 
 <main>
 	<ComingSoonBody />
