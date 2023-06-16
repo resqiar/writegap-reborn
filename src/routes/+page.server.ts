@@ -11,8 +11,9 @@ export async function load({ fetch, cookies }: ServerLoadEvent) {
 	if (!session_id) return { user: null };
 
 	try {
-		console.log(cookies);
 		const req = await fetch(`${PUBLIC_SERVER_URL}/user/profile`, { credentials: 'include' });
+
+		console.log(session_id);
 
 		// if request status is not 200 (OK)
 		// return user as null
