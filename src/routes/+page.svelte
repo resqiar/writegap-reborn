@@ -17,6 +17,8 @@
 	async function test() {
 		const req = await fetch(`${PUBLIC_SERVER_URL}/user/profile`, { credentials: 'include' });
 		console.log(req);
+		console.log(req.status);
+		console.log(await req.json());
 	}
 
 	// Mount saved theme from local storage
