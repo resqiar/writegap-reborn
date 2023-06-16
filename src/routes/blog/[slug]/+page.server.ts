@@ -1,7 +1,7 @@
 import { SERVER_URL } from '$env/static/private';
 import { error, type ServerLoadEvent } from '@sveltejs/kit';
 import type UserProfile from '../../../types/UserProfile';
-// import parseMD from '../../../libs/ParseMarkdown';
+import parseMD from '../../../libs/ParseMarkdown';
 
 export async function load({ fetch, params }: ServerLoadEvent) {
 	let blogID = params.slug;
@@ -30,16 +30,16 @@ export async function load({ fetch, params }: ServerLoadEvent) {
 			userProfile = res.result;
 		}
 
-		// // Extract the result value from the fulfilled request
-		// const { result } = await blogReq.value.json();
+		// Extract the result value from the fulfilled request
+		const { result } = await blogReq.value.json();
 
-		// // Compile the Markdown content and bind the compiled
-		// // back into the result content.
-		// result.Content = await parseMD(result.Content);
+		// Compile the Markdown content and bind the compiled
+		// back into the result content.
+		result.Content = await parseMD(result.Content);
 
 		return {
 			user: userProfile,
-			// blog: result
+			blog: result
 		};
 	} catch (err) {
 		throw error(404);
