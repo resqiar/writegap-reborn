@@ -5,8 +5,6 @@ import type UserProfile from '../types/UserProfile';
 export async function load({ fetch, cookies }: ServerLoadEvent) {
 	const session_id = cookies.get('session_id');
 
-	console.log(session_id);
-
 	// If there is no session cookies - or expired cookies,
 	// immediately return user as null.
 	// This way we can save bandwith for the server.
@@ -14,6 +12,10 @@ export async function load({ fetch, cookies }: ServerLoadEvent) {
 
 	try {
 		const req = await fetch(`${PUBLIC_SERVER_URL}/user/profile`, { credentials: 'include' });
+
+		console.log(PUBLIC_SERVER_URL);
+		console.log(req.status);
+		console.log(req);
 
 		// if request status is not 200 (OK)
 		// return user as null
