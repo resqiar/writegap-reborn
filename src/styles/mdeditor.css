@@ -1,4 +1,5 @@
 .markdown-body {
+  max-width: 100vw;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   margin: 0;
@@ -318,6 +319,8 @@
 }
 
 .markdown-body pre {
+  overflow-x: scroll;
+  max-width: 100%;
   margin-top: 0;
   margin-bottom: 0;
   font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,

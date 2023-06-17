@@ -130,7 +130,7 @@
 			</div>
 		{/if}
 
-		<div class="markdown-body my-4">
+		<div class="markdown-body my-4 px-4 lg:px-0">
 			{@html blog.Content}
 		</div>
 	</div>

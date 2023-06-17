@@ -9,7 +9,7 @@
 
 <a
 	href={`/blog/${item.ID}`}
-	class="card h-min w-96 flex-wrap bg-base-300 shadow-xl transition-all hover:-translate-y-1 hover:shadow-2xl"
+	class="card h-min w-full flex-wrap bg-base-300 shadow-xl transition-all hover:-translate-y-1 hover:shadow-2xl lg:w-96"
 >
 	{#if item.CoverURL}
 		<figure>
