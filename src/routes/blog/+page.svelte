@@ -6,6 +6,7 @@
 	import IndexBlogBody from '../../components/body/IndexBlogBody.svelte';
 	import MainHeader from '../../components/header/MainHeader.svelte';
 	import type UserProfile from '../../types/UserProfile';
+	import MetaHead from '../../components/meta/MetaHead.svelte';
 
 	export let data: PageData;
 
@@ -19,9 +20,8 @@
 	});
 </script>
 
-<svelte:head>
-	<title>ResqiAR's Blog Collection</title>
-</svelte:head>
+<!-- META TAG -->
+<MetaHead title="Blog collection | Resqiar.com" />
 
 <header>
 	<MainHeader active={1} user={profile} />

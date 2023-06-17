@@ -7,6 +7,7 @@
 
 	import type UserProfile from '../../../types/UserProfile';
 	import type { PageData } from './$types';
+	import MetaHead from '../../../components/meta/MetaHead.svelte';
 
 	export let data: PageData;
 
@@ -21,9 +22,8 @@
 	});
 </script>
 
-<svelte:head>
-	<title>Create a New Blog | ResqiAR</title>
-</svelte:head>
+<!-- META TAG -->
+<MetaHead title="Create a New Blog | Resqiar.com" />
 
 <header>
 	<MainHeader active={1} user={profile} />

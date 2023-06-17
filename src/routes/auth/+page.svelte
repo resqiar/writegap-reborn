@@ -2,6 +2,7 @@
 	import { PUBLIC_SERVER_URL } from '$env/static/public';
 	import { onMount } from 'svelte';
 	import { themeChange } from 'theme-change';
+	import MetaHead from '../../components/meta/MetaHead.svelte';
 
 	// Mount saved theme from local storage
 	onMount(async () => {
@@ -9,10 +10,8 @@
 	});
 </script>
 
-<svelte:head>
-	<!-- head content -->
-	<title>Login or Register | ResqiAR</title>
-</svelte:head>
+<!-- META TAG -->
+<MetaHead title="Login or Register | Resqiar.com" />
 
 <main class="mt-16 flex min-h-screen w-full items-start justify-center lg:mt-0 lg:items-center">
 	<div class="card bg-base-100 lg:w-[38%] lg:shadow-xl">

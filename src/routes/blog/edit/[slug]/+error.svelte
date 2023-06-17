@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { themeChange } from 'theme-change';
+	import MetaHead from '../../../../components/meta/MetaHead.svelte';
 
 	// Mount saved theme from local storage
 	onMount(async () => {
@@ -8,9 +9,8 @@
 	});
 </script>
 
-<svelte:head>
-	<title>Not Found</title>
-</svelte:head>
+<!-- META TAG -->
+<MetaHead title="Page Not Found | Resqiar.com" />
 
 <main>
 	<div class="hero min-h-screen">

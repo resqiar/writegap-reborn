@@ -6,6 +6,7 @@
 	import type UserProfile from '../../../types/UserProfile';
 	import DetailBlogBody from '../../../components/body/DetailBlogBody.svelte';
 	import MainHeader from '../../../components/header/MainHeader.svelte';
+	import MetaHead from '../../../components/meta/MetaHead.svelte';
 
 	export let data: PageData;
 
@@ -23,9 +24,13 @@
 	});
 </script>
 
-<svelte:head>
-	<title>{blog.Title} by {blog.Author.Username} | ResqiAR</title>
-</svelte:head>
+<!-- META TAG -->
+<MetaHead
+	title={`${blog.Title} by ${blog.Author.Username} | Resqiar.com`}
+	url={`https://resqiar.com/blog/${blog.ID}`}
+	description={blog.Summary}
+	imageURL={blog.CoverURL}
+/>
 
 <header>
 	<MainHeader active={1} user={profile} />
