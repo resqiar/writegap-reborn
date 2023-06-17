@@ -1,11 +1,10 @@
-<div class="">
-	<p id="logo">ResqiAR</p>
+<div>
+	<p id="logo" class="text-[24px] lg:text-[32px]">ResqiAR</p>
 </div>
 
 <style>
 	#logo {
 		margin: 0;
-		font-size: 32px;
 		font-family: 'Righteous', 'Roboto';
 		background: linear-gradient(90deg, #4e004f 1%, rgba(255, 144, 0, 1) 75%);
 		/* background: rgba(255, 144, 0, 1); */

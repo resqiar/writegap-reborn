@@ -3,6 +3,7 @@
 
 	import Logo from '../brand/Logo.svelte';
 	import MainMenu from '../menu/MainMenu.svelte';
+	import MobileNavigation from '../menu/MobileNavigation.svelte';
 	import ThemeChangeMenu from '../menu/ThemeChangeMenu.svelte';
 
 	export let active: number = 0;
@@ -82,7 +83,7 @@
 			target="_blank"
 			aria-label="Author's GitHub"
 			title="Author's GitHub"
-			class="btn-ghost btn-square btn"
+			class="btn-ghost btn-square btn hidden lg:flex"
 			rel="noreferrer"
 		>
 			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -95,5 +96,8 @@
 
 		<!-- THEME CHANGE MENU -->
 		<ThemeChangeMenu />
+
+		<!-- MOBILE NAVIGATION -->
+		<MobileNavigation />
 	</div>
 </div>
