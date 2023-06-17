@@ -12,8 +12,7 @@ const config = {
   ],
   kit: {
     adapter: adapter({
-      runtime: "edge",
-      regions: "all"
+      runtime: "nodejs18.x",
     })
   }
 };
