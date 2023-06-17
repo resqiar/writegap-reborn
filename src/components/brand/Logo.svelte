@@ -1,5 +1,5 @@
 <div>
-	<p id="logo" class="text-[24px] lg:text-[32px]">ResqiAR</p>
+	<p id="logo" class="text-[24px] lg:text-[32px]">Resqiar</p>
 </div>
 
 <style>
