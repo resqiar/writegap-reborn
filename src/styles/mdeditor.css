@@ -279,11 +279,19 @@
   border-left: 0.25em solid #ff9000;
 }
 
-.markdown-body ul,
 .markdown-body ol {
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 2em;
+  list-style-type: decimal;
+}
+
+
+.markdown-body ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 2em;
+  list-style-type: disc;
 }
 
 .markdown-body ol ol,
