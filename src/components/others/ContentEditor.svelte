@@ -16,4 +16,4 @@
 	let plugins: BytemdPlugin[] = [gfm(), highlight()];
 </script>
 
-<Editor value={content} on:change={handleContentChange} mode="auto" maxLength={10000} {plugins} />
+<Editor value={content} on:change={handleContentChange} mode="auto" maxLength={50000} {plugins} />
