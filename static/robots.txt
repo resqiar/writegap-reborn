@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.resqiar.com
+
+# Sitemaps
+Sitemap: https://www.resqiar.com/sitemap.xml
