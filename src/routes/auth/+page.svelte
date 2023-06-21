@@ -55,9 +55,9 @@
 			<div class="flex items-center">
 				<p class="text-center text-sm">
 					By login you agree with our
-					<a href="/misc/privacy-policy" class="underline">Privacy Policy</a>
+					<a href="/misc/pp.html" class="underline">Privacy Policy</a>
 					and
-					<a href="/misc/terms-of-service" class="underline">Terms of Service</a>
+					<a href="/misc/tos.html" class="underline">Terms of Service</a>
 				</p>
 			</div>
 		</div>
