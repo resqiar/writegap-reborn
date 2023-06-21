@@ -2910,6 +2910,11 @@ svelte-file-dropzone@^2.0.1:
   dependencies:
     file-selector "^0.2.4"
 
+svelte-flag-icons@^0.5.5:
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/svelte-flag-icons/-/svelte-flag-icons-0.5.5.tgz#d574ee3af26e40f304a6aa387781da5ecbe40367"
+  integrity sha512-66mBHl8fQkkpmcFplYAedtJLHCj+rTC/i8XWxfESlk/b9CliyZjuP3RedJgj71US7NpwYmJMOiluCFoVJJKLZw==
+
 svelte-hmr@^0.15.1:
   version "0.15.1"
   resolved "https://registry.yarnpkg.com/svelte-hmr/-/svelte-hmr-0.15.1.tgz#d11d878a0bbb12ec1cba030f580cd2049f4ec86b"
