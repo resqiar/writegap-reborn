@@ -1,6 +1,7 @@
 <script lang="ts">
 	import NProgress from 'nprogress';
 	import { navigating } from '$app/stores';
+	import Analytics from '../components/others/Analytics.svelte';
 
 	import '../styles/app.css';
 	import '../styles/fonts.css';
@@ -26,5 +27,7 @@
 		}
 	}
 </script>
+
+<Analytics />
 
 <slot />
