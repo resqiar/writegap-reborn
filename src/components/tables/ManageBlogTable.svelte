@@ -89,8 +89,8 @@
 							<!-- IF PUBLISH STATUS IS TRUE, SET THE ID AS LINK -->
 							<a href={`/blog/${item.ID}`} class="text-sm hover:underline">{item.ID}</a>
 						{:else}
-							<!-- OTHERWISE, SET AS A PLAIN TEXT -->
-							<p class="text-sm">{item.ID}</p>
+							<!-- OTHERWISE, SET AS A PREVIEW LINK -->
+							<a href={`/blog/preview/${item.ID}`} class="text-sm hover:underline">{item.ID}</a>
 						{/if}
 					</td>
 					<td>
