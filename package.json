@@ -44,7 +44,6 @@
     "bytemd": "^1.21.0",
     "daisyui": "^2.41.0",
     "imagekit-javascript": "^1.5.5",
-    "mdsvex": "^0.10.6",
     "nprogress": "^0.2.0",
     "postcss-load-config": "^4.0.1",
     "rehype-highlight": "^6.0.0",
