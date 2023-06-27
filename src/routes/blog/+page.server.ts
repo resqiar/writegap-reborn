@@ -42,12 +42,12 @@ export async function load({ fetch, cookies }: ServerLoadEvent) {
 				fetch(`${PUBLIC_SERVER_URL}/blog/list`)
 			]);
 
-			if (userRes.status === 'fulfilled') {
+			if (userRes.status === 'fulfilled' && userRes.value.ok) {
 				const { result } = await userRes.value.json();
 				user = result;
 			}
 
-			if (blogRes.status === 'fulfilled') {
+			if (blogRes.status === 'fulfilled' && blogRes.value.ok) {
 				const { result } = await blogRes.value.json();
 
 				// if blog is null, set it to empty
