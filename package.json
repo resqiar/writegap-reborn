@@ -27,7 +27,7 @@
     "postcss": "^8.4.19",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
-    "svelte": "^3.44.0",
+    "svelte": "^4.0.0",
     "svelte-carousel": "^1.0.25",
     "svelte-check": "^3.0.0",
     "svelte-flag-icons": "^0.5.5",
