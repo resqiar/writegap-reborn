@@ -28,7 +28,8 @@ export default async function parseMD(raw: string): Promise<string> {
 		allowedAttributes: {
 			code: ['class'],
 			span: ['class'],
-			img: ['src', 'alt', 'width', 'height', 'target']
+			img: ['src', 'alt', 'width', 'height', 'target'],
+			a: ['href', 'name', 'target']
 		}
 	});
 
