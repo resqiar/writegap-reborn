@@ -4,6 +4,7 @@ import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
+import rehypeExternalLinks from 'rehype-external-links';
 import sanitizeHtml from 'sanitize-html';
 import { allowedTags } from '../data/constants';
 
@@ -20,6 +21,7 @@ export default async function parseMD(raw: string): Promise<string> {
 		.use(remarkRehype, { allowDangerousHtml: true })
 		.use(remarkGfm) // Github Flavoured Markdown
 		.use(rehypeHighlight)
+		.use(rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] })
 		.use(rehypeStringify, { allowDangerousHtml: true })
 		.processSync(raw);
 
@@ -29,7 +31,7 @@ export default async function parseMD(raw: string): Promise<string> {
 			code: ['class'],
 			span: ['class'],
 			img: ['src', 'alt', 'width', 'height', 'target'],
-			a: ['href', 'name', 'target']
+			a: ['href', 'name', 'target', 'rel']
 		}
 	});
 
