@@ -54,13 +54,6 @@ export async function load({ fetch, cookies }: ServerLoadEvent) {
 				if (!result) {
 					blogs = [];
 				} else {
-					// Sort the 'result' array of blog posts based on the 'PublishedAt' property
-					// The sorting is done in descending order, from newest -> oldest
-					result.sort(
-						(a: ISafeBlogAuthor, b: ISafeBlogAuthor) =>
-							new Date(b.PublishedAt).getTime() - new Date(a.PublishedAt).getTime()
-					);
-
 					blogs = result;
 				}
 			} else {
