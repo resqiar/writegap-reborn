@@ -14,8 +14,10 @@
 	let actionState: ManageAction;
 	let actionError: string = '';
 
-	// when data changes, sort them based on which one is the newest
-	$: data.sort((a, b) => new Date(b.CreatedAt).getTime() - new Date(a.CreatedAt).getTime());
+	// when data changes, sort them based on which one is the latest updated
+	// NOTE: RIGHT NOW THIS FEAT IS NOT IMPORTANT SINCE THE BLOG ALREADY SORTED DESC-ly
+	// BY THE SERVER, UNCOMMENT THIS FOR FUTURE USE-CASE
+	// $: data.sort((a, b) => new Date(b.UpdatedAt).getTime() - new Date(a.UpdatedAt).getTime());
 
 	/**
 	 * Handles the data submission based on the 'actionState' value.
