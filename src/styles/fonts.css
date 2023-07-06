@@ -1,13 +1,16 @@
 @font-face {
     font-family: 'Inter Tight';
-    src: url('$fonts/InterTight-Bold.woff2') format('woff2');
+    src: local('Inter Tight'), url('$fonts/InterTight-Bold.woff2') format('woff2');
+    unicode-range: U+000-5FF;
     font-weight: bold;
-    font-style: normal; font-display: swap; 
+    font-style: normal; 
+    font-display: swap; 
 }
 
 @font-face {
     font-family: 'Inter Tight';
-    src: url('$fonts/InterTight-SemiBold.woff2') format('woff2');
+    src: local('Inter Tight'), url('$fonts/InterTight-SemiBold.woff2') format('woff2');
+    unicode-range: U+000-5FF;
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -15,7 +18,8 @@
 
 @font-face {
     font-family: 'Inter Tight';
-    src: url('$fonts/InterTight-Thin.woff2') format('woff2');
+    src: local('Inter Tight'), url('$fonts/InterTight-Thin.woff2') format('woff2');
+    unicode-range: U+000-5FF;
     font-weight: 100;
     font-style: normal;
     font-display: swap;
@@ -23,7 +27,8 @@
 
 @font-face {
     font-family: 'Inter Tight';
-    src: url('$fonts/InterTight-Medium.woff2') format('woff2');
+    src: local('Inter Tight'), url('$fonts/InterTight-Medium.woff2') format('woff2');
+    unicode-range: U+000-5FF;
     font-weight: 500;
     font-style: normal;
     font-display: swap;
