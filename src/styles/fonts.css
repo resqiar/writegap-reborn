@@ -1,11 +1,4 @@
 @font-face {
-	font-family: 'Righteous';
-	src: url('$fonts/Righteous-Regular.woff2') format('woff2');
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
     font-family: 'Inter Tight';
     src: url('$fonts/InterTight-Bold.woff2') format('woff2');
     font-weight: bold;
