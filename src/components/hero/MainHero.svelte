@@ -4,7 +4,7 @@
 	>
 		<img
 			alt="Hero"
-			src="/media/talent.webp"
+			src="/media/talent.png"
 			class="max-w-[250px] rounded-lg object-cover lg:mr-8 lg:max-w-sm"
 		/>
 
