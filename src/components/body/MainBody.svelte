@@ -92,6 +92,7 @@
 				src="https://wakatime.com/badge/user/e1e04b0c-4ecc-489e-b9aa-00c30a1aab60.svg"
 				alt="Total Hours"
 				class="mb-4 mt-1"
+				loading="lazy"
 			/>
 
 			<p>
@@ -107,6 +108,7 @@
 			<img
 				alt="Wakatime Stats"
 				src="https://github-readme-stats.vercel.app/api/wakatime?username=resqiar&theme=midnight-purple&layout=compact"
+				loading="lazy"
 			/>
 		</div>
 	</div>
