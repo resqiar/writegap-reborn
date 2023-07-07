@@ -5,6 +5,8 @@
 		<img
 			alt="Hero"
 			src="/media/talent.webp"
+			width="400"
+			height="200"
 			class="max-w-[250px] rounded-lg object-cover lg:mr-8 lg:max-w-sm"
 		/>
 

@@ -37,7 +37,14 @@
 									pauseOnFocus
 								>
 									{#each data.images as img}
-										<img class="h-[250px] w-[400px] object-cover" src={img} alt="item" />
+										<img
+											class="h-[250px] w-[400px] object-cover"
+											src={img}
+											alt="item"
+											width="100"
+											height="50"
+											loading="lazy"
+										/>
 									{/each}
 								</Carousel>
 							{/if}
