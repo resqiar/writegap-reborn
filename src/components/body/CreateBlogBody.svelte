@@ -184,11 +184,11 @@
 			{#if title}
 				<div
 					transition:fade
-					class="flex w-full flex-col items-center justify-center rounded-lg bg-base-300 py-4"
+					class="flex w-full flex-col items-center justify-center rounded-lg bg-base-300 p-2"
 				>
-					<h2 class="font-semibold">Ready to Submit?</h2>
-					<p class="text-center text-sm">
-						Don't worry, you can choose to create it as draft or immediately publish the blog.
+					<h2 class="mt-2 font-semibold">Ready to Submit?</h2>
+					<p class="mt-1 text-center text-sm">
+						Don't worry! Your blog will not be published right away!
 					</p>
 
 					<div class="my-4 flex w-full flex-col gap-2 px-4">
@@ -197,7 +197,7 @@
 								for="create-as-draft-modal"
 								class="btn-sm btn w-full gap-2 rounded-full text-sm font-normal normal-case"
 							>
-								Create as <span class="font-semibold text-red-300">Draft</span>
+								Create as <span class="font-semibold text-amber-300">Draft</span>
 							</label>
 
 							<!-- CONFIRMATION MODAL FOR DRAFT -->
@@ -208,24 +208,6 @@
 								error={errorMessage}
 								loading={createLoading}
 								on:click={createDraft}
-							/>
-						</div>
-
-						<div>
-							<label
-								for="create-as-published-modal"
-								class="btn-sm btn w-full gap-2 rounded-full text-sm font-normal normal-case"
-							>
-								Create as <span class="font-semibold text-amber-300">Published</span>
-							</label>
-
-							<!-- CONFIRMATION MODAL FOR PUBLISHED -->
-							<ConfirmationModal
-								id="create-as-published-modal"
-								title="Create Blog as Published?"
-								desc="Create a blog post as published will both store it within your account and make it immediately accessible to the public. This grants all users the ability to access your published blogs."
-								error={errorMessage}
-								loading={createLoading}
 							/>
 						</div>
 					</div>
