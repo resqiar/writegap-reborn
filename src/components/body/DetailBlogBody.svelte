@@ -68,7 +68,7 @@
 			</div>
 
 			<div>
-				<button disabled class="disabled btn-ghost btn-sm btn-circle btn lg:btn-md">
+				<button disabled class="btn-ghost disabled btn-sm btn-circle btn lg:btn-md">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -85,7 +85,7 @@
 					</svg>
 				</button>
 
-				<button disabled class="disabled btn-ghost btn-sm btn-circle btn lg:btn-md">
+				<button disabled class="btn-ghost disabled btn-sm btn-circle btn lg:btn-md">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -108,7 +108,7 @@
 		</div>
 
 		{#if blog.CoverURL}
-			<div class="my-4 w-full self-center rounded shadow-2xl">
+			<div class="mb-12 mt-4 w-full self-center rounded shadow-2xl">
 				<img
 					class="aspect-video w-full rounded object-cover"
 					src={blog.CoverURL}
