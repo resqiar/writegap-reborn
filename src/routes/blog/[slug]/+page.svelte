@@ -32,9 +32,10 @@
 	imageURL={blog.CoverURL}
 />
 
+<!-- HEADER -->
 <header>
 	<MainHeader active={1} user={profile} />
-
-	<!-- BODY -->
-	<DetailBlogBody {blog} />
 </header>
+
+<!-- BODY -->
+<DetailBlogBody {blog} />
