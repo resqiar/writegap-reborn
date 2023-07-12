@@ -26,7 +26,7 @@
 
 <!-- META TAG -->
 <MetaHead
-	title={`${blog.Title} by ${blog.Author.Username} | Resqiar.com`}
+	title={`${blog.Title} by ${blog.Author.Username} | Blog | Resqiar.com`}
 	url={`https://resqiar.com/blog/${blog.ID}`}
 	description={blog.Summary}
 	imageURL={blog.CoverURL}
