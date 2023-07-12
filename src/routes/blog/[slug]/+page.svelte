@@ -7,6 +7,7 @@
 	import DetailBlogBody from '../../../components/body/DetailBlogBody.svelte';
 	import MainHeader from '../../../components/header/MainHeader.svelte';
 	import MetaHead from '../../../components/meta/MetaHead.svelte';
+	import SchemaHead from '../../../components/meta/SchemaHead.svelte';
 
 	export let data: PageData;
 
@@ -24,13 +25,14 @@
 	});
 </script>
 
-<!-- META TAG -->
+<!-- META TAGs -->
 <MetaHead
 	title={`${blog.Title} by ${blog.Author.Username} | Blog | Resqiar.com`}
 	url={`https://resqiar.com/blog/${blog.ID}`}
 	description={blog.Summary}
 	imageURL={blog.CoverURL}
 />
+<SchemaHead {blog} />
 
 <!-- HEADER -->
 <header>
