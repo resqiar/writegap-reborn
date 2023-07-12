@@ -4,8 +4,8 @@
   -webkit-text-size-adjust: 100%;
   margin: 0;
   background-color: transparent;
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 18px;
+  line-height: 2;
   word-wrap: break-word;
   font-family: inherit;
 }
@@ -48,7 +48,7 @@
 
 .markdown-body b,
 .markdown-body strong {
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .markdown-body dfn {
@@ -237,7 +237,6 @@
 .markdown-body h6 {
   margin-top: 24px;
   margin-bottom: 16px;
-  font-weight: 600;
   line-height: 1.25;
   color: inherit;
 }
@@ -269,6 +268,7 @@
 }
 
 .markdown-body p {
+  font-weight: 400;
   margin-top: 0;
   margin-bottom: 10px;
 }

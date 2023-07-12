@@ -112,7 +112,7 @@
 		</div>
 
 		{#if blog.CoverURL}
-			<div class="my-4 w-full self-center rounded shadow-2xl">
+			<div class="mb-12 mt-4 w-full self-center rounded shadow-2xl">
 				<img
 					class="aspect-video w-full rounded object-cover"
 					src={blog.CoverURL}
