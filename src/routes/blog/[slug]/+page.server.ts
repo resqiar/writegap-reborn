@@ -10,15 +10,7 @@ export async function load({ fetch, params }: ServerLoadEvent) {
 	try {
 		const [userReq, blogReq] = await Promise.allSettled([
 			fetch(`${SERVER_URL}/user/profile`),
-			fetch(`${SERVER_URL}/blog/get`, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({
-					id: blogID
-				})
-			})
+			fetch(`${SERVER_URL}/blog/get/${blogID}`)
 		]);
 
 		// if request status is not 200 (OK)
