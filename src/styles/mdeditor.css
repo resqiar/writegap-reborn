@@ -10,6 +10,11 @@
   font-family: inherit;
 }
 
+.markdown-body h1 a,
+.markdown-body h2 a {
+  color: inherit;
+}
+
 .markdown-body .octicon {
   display: inline-block;
   fill: currentColor;
