@@ -4,6 +4,7 @@ import type { IBlog } from '../types/Blog';
 export default async function getCurrentBlogs(): Promise<IBlog[] | undefined> {
 	try {
 		const req = await fetch(`${PUBLIC_SERVER_URL}/blog/list/current`, {
+			method: 'POST',
 			credentials: 'include'
 		});
 

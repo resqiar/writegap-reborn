@@ -14,7 +14,10 @@ export async function load({ fetch, cookies }: ServerLoadEvent) {
 	try {
 		const [userReq, blogReq] = await Promise.allSettled([
 			fetch(`${PUBLIC_SERVER_URL}/user/profile`),
-			fetch(`${PUBLIC_SERVER_URL}/blog/list/current`)
+			fetch(`${PUBLIC_SERVER_URL}/blog/list/current`, {
+				method: 'POST',
+				credentials: 'include'
+			})
 		]);
 
 		// if request status is not 200 (OK)
