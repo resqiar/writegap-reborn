@@ -1,3 +1,4 @@
+
 .bytemd{
   height: 500px;
 }
@@ -6,6 +7,22 @@
   color: inherit;
   background-color: transparent;
   font-family: inherit;
+}
+
+[data-theme="black"] .CodeMirror-cursor {
+  border-left: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="forest"]  .CodeMirror-cursor {
+  border-left: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="luxury"]  .CodeMirror-cursor {
+  border-left: 2px solid rgb(220, 165, 76);
+}
+
+[data-theme="night"]  .CodeMirror-cursor {
+  border-left: 2px solid rgba(255, 255, 255, 0.6);
 }
 
 [data-theme="lofi"]  .bytemd-fullscreen {
@@ -19,7 +36,6 @@
 [data-theme="cyberpunk"]  .bytemd-fullscreen {
   background-color: yellow;
 }
-
 
 [data-theme="forest"]  .bytemd-fullscreen {
   background-color: #000;
