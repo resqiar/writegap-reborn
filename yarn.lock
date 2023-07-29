@@ -3075,9 +3075,9 @@ svelte-file-dropzone@^2.0.1:
     file-selector "^0.2.4"
 
 svelte-flag-icons@^0.5.5:
-  version "0.5.5"
-  resolved "https://registry.yarnpkg.com/svelte-flag-icons/-/svelte-flag-icons-0.5.5.tgz#d574ee3af26e40f304a6aa387781da5ecbe40367"
-  integrity sha512-66mBHl8fQkkpmcFplYAedtJLHCj+rTC/i8XWxfESlk/b9CliyZjuP3RedJgj71US7NpwYmJMOiluCFoVJJKLZw==
+  version "0.5.7"
+  resolved "https://registry.yarnpkg.com/svelte-flag-icons/-/svelte-flag-icons-0.5.7.tgz#78b472293aa8054b9385d1c4ceeaea828c015bf7"
+  integrity sha512-tClSvVNpXCSORFOJo8qaajDfsVngkL0fI+LQh+S0OKqbvHLEi8QwAB6XmYCkvhx1VAjHzerdYM1hg4zx+h6OEQ==
 
 svelte-hmr@^0.15.2:
   version "0.15.2"
