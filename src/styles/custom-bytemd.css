@@ -7,10 +7,24 @@
 .bytemd-toolbar,
 .bytemd-body,
 .bytemd-editor,
+.bytemd-status,
 .CodeMirror {
   color: inherit;
   background-color: transparent;
   font-family: inherit;
+  border: none;
+}
+
+.bytemd-toolbar {
+  border-bottom: 1px solid #808080;
+}
+
+.bytemd-status {
+  border-top: 1px solid #808080;
+}
+
+.bytemd-split .bytemd-preview {
+  border-left: 1px solid #808080;
 }
 
 /* BYTEMD SELECTION STYLES */
