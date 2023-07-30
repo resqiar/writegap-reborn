@@ -1,38 +1,71 @@
-.bytemd{
+/* GENERAL BYTEMD STYLE */
+.bytemd {
   height: 500px;
 }
 
-.bytemd, .bytemd-toolbar, .bytemd-body, .bytemd-editor, .CodeMirror {
+.bytemd,
+.bytemd-toolbar,
+.bytemd-body,
+.bytemd-editor,
+.bytemd-status,
+.CodeMirror {
   color: inherit;
   background-color: transparent;
   font-family: inherit;
+  border: none;
 }
 
-[data-theme="lofi"]  .bytemd-fullscreen {
+.bytemd-toolbar {
+  border-bottom: 1px solid #808080;
+}
+
+.bytemd-status {
+  border-top: 1px solid #808080;
+}
+
+.bytemd-split .bytemd-preview {
+  border-left: 1px solid #808080;
+}
+
+/* BYTEMD SELECTION STYLES */
+[data-theme="black"] .CodeMirror-focused .CodeMirror-selected,
+[data-theme="forest"] .CodeMirror-focused .CodeMirror-selected,
+[data-theme="luxury"] .CodeMirror-focused .CodeMirror-selected,
+[data-theme="night"] .CodeMirror-focused .CodeMirror-selected,
+[data-theme="black"] .CodeMirror-selected,
+[data-theme="forest"] .CodeMirror-selected,
+[data-theme="luxury"] .CodeMirror-selected,
+[data-theme="night"] .CodeMirror-selected {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* BYTEMD CURSOR STYLES */
+[data-theme="black"] .CodeMirror-cursor,
+[data-theme="forest"] .CodeMirror-cursor,
+[data-theme="night"] .CodeMirror-cursor {
+  border-left: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="luxury"] .CodeMirror-cursor {
+  border-left: 2px solid rgb(220, 165, 76);
+}
+
+/* BYTEMD FULLSCREEN BACKGROUND STYLES */
+[data-theme="lofi"] .bytemd-fullscreen,
+[data-theme="corporate"] .bytemd-fullscreen {
   background-color: #fff;
 }
 
-[data-theme="corporate"]  .bytemd-fullscreen {
-  background-color: #fff;
-}
-
-[data-theme="cyberpunk"]  .bytemd-fullscreen {
-  background-color: yellow;
-}
-
-
-[data-theme="forest"]  .bytemd-fullscreen {
+[data-theme="cyberpunk"] .bytemd-fullscreen,
+[data-theme="forest"] .bytemd-fullscreen,
+[data-theme="black"] .bytemd-fullscreen {
   background-color: #000;
 }
 
-[data-theme="black"]  .bytemd-fullscreen {
-  background-color: #000;
-}
-
-[data-theme="luxury"]  .bytemd-fullscreen {
+[data-theme="luxury"] .bytemd-fullscreen {
   background-color: rgb(9, 9, 11);
 }
 
-[data-theme="night"]  .bytemd-fullscreen {
+[data-theme="night"] .bytemd-fullscreen {
   background-color: rgb(15, 23, 41);
 }
