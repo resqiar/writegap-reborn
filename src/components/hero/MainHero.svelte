@@ -34,7 +34,12 @@
 
 			<div class="mb-12 flex flex-col items-center lg:mb-0 lg:flex-row">
 				<div>
-					<a href="https://github.com/resqiar" target="_blank" class="btn btn-square btn-ghost">
+					<a
+						href="https://github.com/resqiar"
+						target="_blank"
+						class="btn btn-square btn-ghost"
+						title="GitHub"
+					>
 						<GithubIcon />
 					</a>
 
@@ -42,11 +47,17 @@
 						href="https://www.linkedin.com/in/resqi-ageng-rahmatullah-8692911a5"
 						target="_blank"
 						class="btn btn-square btn-ghost"
+						title="LinkedIn"
 					>
 						<LinkedInIcon />
 					</a>
 
-					<a href="https://twitter.com/resqiar_" target="_blank" class="btn btn-square btn-ghost">
+					<a
+						href="https://twitter.com/resqiar_"
+						target="_blank"
+						class="btn btn-square btn-ghost"
+						title="Twitter"
+					>
 						<TwitterIcon />
 					</a>
 
@@ -54,11 +65,12 @@
 						href="https://www.youtube.com/channel/UCFoRXlvnR-E2uxpMUozvpFg"
 						target="_blank"
 						class="btn btn-square btn-ghost"
+						title="Youtube"
 					>
 						<YoutubeIcon />
 					</a>
 
-					<a href="mailto:contact@resqiar.com" class="btn btn-square btn-ghost">
+					<a href="mailto:contact@resqiar.com" class="btn btn-square btn-ghost" title="Email">
 						<AtIcon />
 					</a>
 				</div>
@@ -67,7 +79,7 @@
 				<div class="divider divider-horizontal hidden lg:flex" />
 
 				<div>
-					<a href="#contact" class="btn btn-ghost flex gap-2">
+					<a href="#contact" class="btn btn-ghost flex gap-2" title="View or Download Resume">
 						<ResumeIcon />
 						<p>View Resume</p>
 					</a>
