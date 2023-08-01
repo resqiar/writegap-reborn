@@ -1,7 +1,8 @@
 <script>
+	import AtIcon from '../icons/AtIcon.svelte';
 	import GithubIcon from '../icons/GithubIcon.svelte';
-	import GlobeIcon from '../icons/GlobeIcon.svelte';
 	import LinkedInIcon from '../icons/LinkedInIcon.svelte';
+	import ResumeIcon from '../icons/ResumeIcon.svelte';
 	import TwitterIcon from '../icons/TwitterIcon.svelte';
 	import YoutubeIcon from '../icons/YoutubeIcon.svelte';
 </script>
@@ -31,38 +32,46 @@
 				specialize but not limited in building Web and Server environtment.
 			</p>
 
-			<div class="flex flex-row items-center">
-				<a href="https://github.com/resqiar" target="_blank" class="btn btn-square btn-ghost">
-					<GithubIcon />
-				</a>
+			<div class="mb-12 flex flex-col items-center lg:mb-0 lg:flex-row">
+				<div>
+					<a href="https://github.com/resqiar" target="_blank" class="btn btn-square btn-ghost">
+						<GithubIcon />
+					</a>
 
-				<a
-					href="https://www.linkedin.com/in/resqi-ageng-rahmatullah-8692911a5"
-					target="_blank"
-					class="btn btn-square btn-ghost"
-				>
-					<LinkedInIcon />
-				</a>
+					<a
+						href="https://www.linkedin.com/in/resqi-ageng-rahmatullah-8692911a5"
+						target="_blank"
+						class="btn btn-square btn-ghost"
+					>
+						<LinkedInIcon />
+					</a>
 
-				<a href="https://twitter.com/resqiar_" target="_blank" class="btn btn-square btn-ghost">
-					<TwitterIcon />
-				</a>
+					<a href="https://twitter.com/resqiar_" target="_blank" class="btn btn-square btn-ghost">
+						<TwitterIcon />
+					</a>
 
-				<a
-					href="https://www.youtube.com/channel/UCFoRXlvnR-E2uxpMUozvpFg"
-					target="_blank"
-					class="btn btn-square btn-ghost"
-				>
-					<YoutubeIcon />
-				</a>
+					<a
+						href="https://www.youtube.com/channel/UCFoRXlvnR-E2uxpMUozvpFg"
+						target="_blank"
+						class="btn btn-square btn-ghost"
+					>
+						<YoutubeIcon />
+					</a>
+
+					<a href="mailto:contact@resqiar.com" class="btn btn-square btn-ghost">
+						<AtIcon />
+					</a>
+				</div>
 
 				<!-- DIVIDER -->
-				<div class="divider divider-horizontal" />
+				<div class="divider divider-horizontal hidden lg:flex" />
 
-				<a href="#contact" class="btn btn-ghost flex gap-2">
-					<GlobeIcon />
-					<p>Direct Contact</p>
-				</a>
+				<div>
+					<a href="#contact" class="btn btn-ghost flex gap-2">
+						<ResumeIcon />
+						<p>View Resume</p>
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
