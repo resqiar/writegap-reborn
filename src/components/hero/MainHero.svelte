@@ -81,7 +81,12 @@
 				<div class="divider divider-horizontal hidden lg:flex" />
 
 				<div>
-					<a href="#contact" class="btn btn-ghost flex gap-2" title="View or Download Resume">
+					<a
+						href="/media/resume/resume-resqiarcom.pdf"
+						target="_blank"
+						class="btn btn-ghost flex gap-2"
+						title="View or Download Resume"
+					>
 						<ResumeIcon />
 						<p>View Resume</p>
 					</a>
