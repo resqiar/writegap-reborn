@@ -28,8 +28,10 @@
 			</h1>
 
 			<p class="py-6 leading-6">
-				I am a <strong>Software Developer</strong> from a beautiful country of Indonesia 🇮🇩. <br /> I
-				specialize but not limited in building Web and Server environtment.
+				I am a <strong>Software Engineer</strong> from the beautiful country of Indonesia 🇮🇩
+				<br />
+				I specialize in building Web and Server environments, but I am not limited to them. Let's explore
+				and know me better!
 			</p>
 
 			<div class="mb-12 flex flex-col items-center lg:mb-0 lg:flex-row">
