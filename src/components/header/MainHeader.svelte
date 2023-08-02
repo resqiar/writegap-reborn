@@ -80,10 +80,10 @@
 
 		<!-- GITHUB BUTTON -->
 		<a
-			href="https://github.com/resqiar"
+			href="https://github.com/resqiar/resqiar.com"
 			target="_blank"
-			aria-label="Author's GitHub"
-			title="Author's GitHub"
+			aria-label="Give a star on GitHub"
+			title="Give a star on GitHub"
 			class="btn btn-square btn-ghost hidden lg:flex"
 			rel="noreferrer"
 		>
