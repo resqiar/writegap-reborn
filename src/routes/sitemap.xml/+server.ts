@@ -3,7 +3,7 @@ import type { ServerLoadEvent } from '@sveltejs/kit';
 
 export async function GET({ fetch }: ServerLoadEvent) {
 	try {
-		const req = await fetch(`${PUBLIC_SERVER_URL}/blog/list/id`);
+		const req = await fetch(`${PUBLIC_SERVER_URL}/blog/list/slug`);
 		if (!req.ok) return;
 
 		const { result } = await req.json();
@@ -13,26 +13,26 @@ export async function GET({ fetch }: ServerLoadEvent) {
         <url>
             <loc>https://resqiar.com</loc>
             <changefreq>weekly</changefreq>
-            <priority>0.9</priority>
+            <priority>0.8</priority>
         </url>
 
         <url>
             <loc>https://resqiar.com/blog</loc>
             <changefreq>weekly</changefreq>
-            <priority>0.9</priority>
+            <priority>0.8</priority>
         </url>
 
         ${result
-					.map((data: { ID: string; UpdatedAt: string }) => {
-						return `
+				.map((data: { AuthorUsername: string; Slug: string; UpdatedAt: string }) => {
+					return `
                 <url>
-                    <loc>https://resqiar.com/blog/${data.ID}</loc>
-                    <changefreq>weekly</changefreq>
+                    <loc>https://resqiar.com/blog/${data.AuthorUsername}/${data.Slug}</loc>
+                    <changefreq>daily</changefreq>
                     <lastmod>${data.UpdatedAt}</lastmod>
-                    <priority>0.8</priority>
+                    <priority>0.9</priority>
                 </url>`;
-					})
-					.join('')}
+				})
+				.join('')}
     </urlset>`;
 
 		return new Response(xml, {
