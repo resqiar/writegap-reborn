@@ -4,8 +4,10 @@
 	import type { ManageAction } from '../../data/modalActionState';
 	import type { IBlog } from '../../types/Blog';
 	import ManageModal from '../modal/ManageModal.svelte';
+	import type UserProfile from '../../types/UserProfile';
 
 	export let data: IBlog[];
+	export let userProfile: UserProfile;
 	export let published: boolean;
 	export let onDataChange: () => void = () => {};
 
@@ -71,11 +73,11 @@
 </script>
 
 <div class="my-4 w-full overflow-x-auto">
-	<table class="table-zebra table w-full px-4">
+	<table class="table table-zebra w-full px-4">
 		<!-- head -->
 		<thead>
 			<tr>
-				<th>ID</th>
+				<th>Slug/ID</th>
 				<th>Cover</th>
 				<th>Title</th>
 				<th>Summary</th>
@@ -89,7 +91,13 @@
 					<td>
 						{#if published}
 							<!-- IF PUBLISH STATUS IS TRUE, SET THE ID AS LINK -->
-							<a href={`/blog/${item.ID}`} class="text-sm hover:underline">{item.ID}</a>
+							<a
+								href={`/blog/${userProfile.Username}/${item.Slug}`}
+								class="text-sm hover:underline"
+								title={item.Slug}
+							>
+								{item.Slug.length > 20 ? item.Slug.substring(0, 20) + '...' : item.Slug}
+							</a>
 						{:else}
 							<!-- OTHERWISE, SET AS A PREVIEW LINK -->
 							<a href={`/blog/preview/${item.ID}`} class="text-sm hover:underline">{item.ID}</a>
@@ -125,9 +133,10 @@
 						{#if published}
 							<div class="flex gap-1">
 								<button
-									on:click={() => (window.location.href = `/blog/${item.ID}`)}
+									on:click={() =>
+										(window.location.href = `/blog/${userProfile.Username}/${item.Slug}`)}
 									title="See Details"
-									class="btn-info btn-sm btn text-sm"
+									class="btn btn-info btn-sm text-sm"
 								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
@@ -157,7 +166,7 @@
 										actionModal = true;
 									}}
 									title="Edit Blog"
-									class="btn-warning btn-sm btn text-sm"
+									class="btn btn-warning btn-sm text-sm"
 								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
@@ -182,7 +191,7 @@
 										actionModal = true;
 									}}
 									title="Unpublish Blog"
-									class="btn-error btn-sm btn text-sm"
+									class="btn btn-error btn-sm text-sm"
 								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
@@ -209,7 +218,7 @@
 										actionModal = true;
 									}}
 									title="Publish Blog"
-									class="btn-primary btn-sm btn text-sm"
+									class="btn btn-primary btn-sm text-sm"
 								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
@@ -234,7 +243,7 @@
 										actionModal = true;
 									}}
 									title="Edit Blog"
-									class="btn-warning btn-sm btn text-sm"
+									class="btn btn-warning btn-sm text-sm"
 								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
@@ -259,7 +268,7 @@
 										actionModal = true;
 									}}
 									title="Remove Blog"
-									class="btn-error disabled btn-sm btn text-sm"
+									class="btn disabled btn-error btn-sm text-sm"
 									disabled
 								>
 									<svg
