@@ -2,6 +2,7 @@ import type { ISafeUser } from './UserProfile';
 
 export interface IBlog {
 	ID: string;
+	Slug: string;
 	CreatedAt: string;
 	UpdatedAt: string;
 	PublishedAt: string;
@@ -16,6 +17,7 @@ export interface IBlog {
 
 export interface ISafeBlog {
 	ID: string;
+	Slug: string;
 	CreatedAt: string;
 	PublishedAt: string;
 	UpdatedAt: string;

@@ -1,16 +1,17 @@
 import { SERVER_URL } from '$env/static/private';
 import { error, type ServerLoadEvent } from '@sveltejs/kit';
-import type UserProfile from '../../../types/UserProfile';
-import parseMD from '../../../libs/ParseMarkdown';
+import type UserProfile from '../../../../types/UserProfile';
+import parseMD from '../../../../libs/ParseMarkdown';
 
 export async function load({ fetch, params }: ServerLoadEvent) {
-	let blogID = params.slug;
+	let author = params.author;
+	let slug = params.slug;
 	let userProfile: UserProfile | null = null;
 
 	try {
 		const [userReq, blogReq] = await Promise.allSettled([
 			fetch(`${SERVER_URL}/user/profile`),
-			fetch(`${SERVER_URL}/blog/get/${blogID}`)
+			fetch(`${SERVER_URL}/blog/get/${author}/${slug}`)
 		]);
 
 		// if request status is not 200 (OK)

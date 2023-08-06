@@ -8,7 +8,7 @@
 </script>
 
 <a
-	href={`/blog/${item.ID}`}
+	href={`/blog/${item.Author.Username}/${item.Slug}`}
 	class="card h-min w-full flex-wrap bg-base-300 shadow-xl transition-all hover:-translate-y-1 hover:shadow-2xl lg:w-96"
 >
 	{#if item.CoverURL}
@@ -29,7 +29,7 @@
 						</div>
 					</div>
 				{:else}
-					<div class="placeholder avatar">
+					<div class="avatar placeholder">
 						<div class="w-10 rounded-full bg-neutral-focus text-neutral-content">
 							<span class="text-xl">{item.Author.Username[0]}</span>
 						</div>

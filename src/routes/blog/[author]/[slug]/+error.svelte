@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { themeChange } from 'theme-change';
-	import MetaHead from '../../../components/meta/MetaHead.svelte';
+	import MetaHead from '../../../../components/meta/MetaHead.svelte';
 
 	// Mount saved theme from local storage
 	onMount(async () => {
