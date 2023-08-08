@@ -48,5 +48,11 @@
 	<MainHeader active={1} user={profile} />
 
 	<!-- Body -->
-	<ManageBlogBody {publishedBlogs} {draftedBlogs} {error} onDataChange={handleDataChange} />
+	<ManageBlogBody
+		userProfile={profile}
+		{publishedBlogs}
+		{draftedBlogs}
+		{error}
+		onDataChange={handleDataChange}
+	/>
 </header>

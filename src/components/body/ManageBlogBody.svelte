@@ -1,8 +1,10 @@
 <script lang="ts">
 	import type { IBlog } from '../../types/Blog';
+	import type UserProfile from '../../types/UserProfile';
 	import ManageBlog404 from '../404/ManageBlog404.svelte';
 	import ManageBlogTable from '../tables/ManageBlogTable.svelte';
 
+	export let userProfile: UserProfile;
 	export let publishedBlogs: IBlog[];
 	export let draftedBlogs: IBlog[];
 	export let error: boolean;
@@ -68,7 +70,7 @@
 				<!-- IF IT CONTAINS VALUE  -->
 				{#if publishedBlogs.length}
 					<div class="flex w-full flex-col items-center justify-center gap-2 lg:flex-row">
-						<ManageBlogTable data={publishedBlogs} published {onDataChange} />
+						<ManageBlogTable {userProfile} data={publishedBlogs} published {onDataChange} />
 					</div>
 				{:else}
 					<!-- ELSE SHOW 404 -->
@@ -77,7 +79,7 @@
 				<!-- IF TAB INDEX IS NOT 0 && IT CONTAINS VALUE  -->
 			{:else if draftedBlogs.length}
 				<div class="flex w-full flex-col items-center justify-center gap-2 lg:flex-row">
-					<ManageBlogTable data={draftedBlogs} published={false} {onDataChange} />
+					<ManageBlogTable {userProfile} data={draftedBlogs} published={false} {onDataChange} />
 				</div>
 			{:else}
 				<!-- ELSE SHOW 404 -->
