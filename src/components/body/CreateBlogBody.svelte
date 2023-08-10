@@ -39,12 +39,19 @@
 		});
 
 		// for now just redirect to manage blog when creating only a draft
-		// in the future, it is a good way to handle successful with
 		// displaying a success message.
 		if (id) return (window.location.href = '/blog/manage');
 	}
 
-	function handleMD(file: File) {}
+	function handleMD(file: File) {
+		const reader = new FileReader();
+		reader.addEventListener('load', (event) => {
+			const result = event.target?.result as string;
+			if (result !== null && result !== '') return (content = result);
+		});
+
+		reader.readAsText(file);
+	}
 </script>
 
 <main class="mb-32 px-4 py-8 lg:px-24">
@@ -161,8 +168,8 @@
 					<!-- Markdown FILE DROPZONE -->
 					<FileDropzone
 						title="Click or drag markdown file here"
-						subTitle="Supported format is only .md file"
-						acceptFiles={['text/markdown']}
+						subTitle="The supported formats are only .md and .txt"
+						acceptFiles={['text/markdown', 'text/plain']}
 						onDropSuccess={handleMD}
 						customClass="px-12 flex flex-col items-center justify-center w-fit min-h-[80px] rounded-lg bg-base-300"
 					/>
