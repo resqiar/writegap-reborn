@@ -36,7 +36,7 @@ export async function load({ fetch, params }: ServerLoadEvent) {
 
 		return {
 			user: userProfile,
-			blog: result.Title
+			blog: "TEST"
 		};
 	} catch (err) {
 		throw error(404);
