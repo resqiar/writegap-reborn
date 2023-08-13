@@ -7,8 +7,6 @@ export async function load({ fetch, params }: ServerLoadEvent) {
 	let author = params.author;
 	let slug = params.slug;
 
-	console.log(author, slug);
-
 	let userProfile: UserProfile | null = null;
 
 	try {
@@ -32,11 +30,10 @@ export async function load({ fetch, params }: ServerLoadEvent) {
 		// Compile the Markdown content and bind the compiled
 		// back into the result content.
 		// result.Content = await parseMD(result.Content);
-		console.log(result.Title);
 
 		return {
 			user: userProfile,
-			blog: "TEST"
+			blog: result
 		};
 	} catch (err) {
 		throw error(404);
