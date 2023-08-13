@@ -32,10 +32,11 @@ export async function load({ fetch, params }: ServerLoadEvent) {
 		// Compile the Markdown content and bind the compiled
 		// back into the result content.
 		// result.Content = await parseMD(result.Content);
+		console.log(result);
 
 		return {
 			user: userProfile,
-			blog: result.Content
+			blog: result.Title
 		};
 	} catch (err) {
 		throw error(404);
