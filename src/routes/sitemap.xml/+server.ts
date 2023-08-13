@@ -1,9 +1,9 @@
-import { PUBLIC_SERVER_URL } from '$env/static/public';
+import { SERVER_URL } from '$env/static/private';
 import type { ServerLoadEvent } from '@sveltejs/kit';
 
 export async function GET({ fetch }: ServerLoadEvent) {
 	try {
-		const req = await fetch(`${PUBLIC_SERVER_URL}/blog/list/slug`);
+		const req = await fetch(`${SERVER_URL}/blog/list/slug`);
 		if (!req.ok) return;
 
 		const { result } = await req.json();
