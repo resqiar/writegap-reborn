@@ -1,7 +1,7 @@
 import { SERVER_URL } from '$env/static/private';
 import { error, type ServerLoadEvent } from '@sveltejs/kit';
 import type UserProfile from '../../../../types/UserProfile';
-import parseMD from '../../../../libs/ParseMarkdown';
+// import parseMD from '../../../../libs/ParseMarkdown';
 
 export async function load({ fetch, params }: ServerLoadEvent) {
 	let author = params.author;
@@ -31,7 +31,9 @@ export async function load({ fetch, params }: ServerLoadEvent) {
 
 		// Compile the Markdown content and bind the compiled
 		// back into the result content.
-		result.Content = await parseMD(result.Content);
+		// result.Content = await parseMD(result.Content);
+
+		result.Content = "DUMMY RESULT";
 
 		return {
 			user: userProfile,
