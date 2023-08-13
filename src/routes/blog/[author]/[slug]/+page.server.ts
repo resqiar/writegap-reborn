@@ -9,6 +9,8 @@ export async function load({ fetch, params }: ServerLoadEvent) {
 	let userProfile: UserProfile | null = null;
 
 	try {
+		const startReqTime = performance.now();
+
 		const [userReq, blogReq] = await Promise.allSettled([
 			fetch(`${SERVER_URL}/user/profile`),
 			fetch(`${SERVER_URL}/blog/get/${author}/${slug}`)
@@ -26,9 +28,17 @@ export async function load({ fetch, params }: ServerLoadEvent) {
 		// Extract the result value from the fulfilled request
 		const { result } = await blogReq.value.json();
 
+		const endReqTime = performance.now();
+		console.log("REQUEST TAKEN:", endReqTime - startReqTime);
+
 		// Compile the Markdown content and bind the compiled
 		// back into the result content.
+		const startParseTime = performance.now();
+
 		result.Content = await parseMD(result.Content);
+
+		const endParseTime = performance.now();
+		console.log("PARSE TAKEN:", endParseTime - startParseTime);
 
 		return {
 			user: userProfile,
