@@ -1,6 +1,11 @@
 <script lang="ts">
 	import Dropzone from 'svelte-file-dropzone/Dropzone.svelte';
 
+	export let title: string = '';
+	export let subTitle: string = '';
+	export let customClass: string = '';
+	export let acceptFiles: string[] = [];
+
 	let onDragHover: boolean = false;
 	let fileError: boolean = false;
 
@@ -29,13 +34,13 @@
 	on:dragleave={() => (onDragHover = false)}
 	disableDefaultStyles={true}
 	multiple={false}
-	accept={['image/jpg', 'image/jpeg', 'image/png']}
+	accept={acceptFiles}
 	containerClasses={`${
 		onDragHover ? 'border-2 border-amber-500 border-dashed' : ''
-	} flex flex-col items-center justify-center min-h-[300px] rounded-lg bg-base-300`}
+	} ${customClass}`}
 >
-	<p class="font-semibold">Click or Drag Image Here</p>
-	<p class="text-sm">Supported formats are jpg, jpeg, png</p>
+	<p class="font-semibold">{title}</p>
+	<p class="text-sm">{subTitle}</p>
 
 	{#if fileError}
 		<p class="text-sm text-red-500">
