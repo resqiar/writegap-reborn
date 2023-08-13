@@ -6,6 +6,9 @@ import parseMD from '../../../../libs/ParseMarkdown';
 export async function load({ fetch, params }: ServerLoadEvent) {
 	let author = params.author;
 	let slug = params.slug;
+
+	console.log(author, slug);
+
 	let userProfile: UserProfile | null = null;
 
 	try {
