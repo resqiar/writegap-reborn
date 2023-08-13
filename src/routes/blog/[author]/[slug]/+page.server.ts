@@ -33,11 +33,9 @@ export async function load({ fetch, params }: ServerLoadEvent) {
 		// back into the result content.
 		// result.Content = await parseMD(result.Content);
 
-		result.Content = "DUMMY RESULT";
-
 		return {
 			user: userProfile,
-			blog: result
+			blog: result.Content
 		};
 	} catch (err) {
 		throw error(404);
