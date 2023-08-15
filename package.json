@@ -56,6 +56,6 @@
     "sanitize-html": "^2.11.0",
     "svelte-file-dropzone": "^2.0.1",
     "theme-change": "^2.5.0",
-    "unified": "^10.1.2"
+    "unified": "^11.0.0"
   }
 }
