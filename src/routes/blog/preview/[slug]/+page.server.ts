@@ -1,7 +1,6 @@
 import { SERVER_URL } from '$env/static/private';
 import { error, redirect, type ServerLoadEvent } from '@sveltejs/kit';
 import type UserProfile from '../../../../types/UserProfile';
-import parseMD from '../../../../libs/ParseMarkdown';
 
 export async function load({ fetch, params, cookies }: ServerLoadEvent) {
 	// Get session_id from cookies
@@ -41,10 +40,6 @@ export async function load({ fetch, params, cookies }: ServerLoadEvent) {
 
 		// Extract the result value from the fulfilled request
 		const { result } = await blogReq.value.json();
-
-		// Compile the Markdown content and bind the compiled
-		// back into the result content.
-		result.Content = await parseMD(result.Content);
 		result.Author = userProfile;
 
 		return {
