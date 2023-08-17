@@ -2,9 +2,6 @@
 	import type { ISafeBlogAuthor } from '../../types/Blog';
 	import '../../styles/mdeditor.css';
 	import TesterBadge from '../badges/TesterBadge.svelte';
-
-	// highlight.js StyleSheet
-	import '../../styles/highlighter/atom-one-dark.css';
 	import TranslationMenu from '../menu/TranslationMenu.svelte';
 
 	export let blog: ISafeBlogAuthor;
@@ -31,7 +28,7 @@
 						</div>
 					</div>
 				{:else}
-					<div class="placeholder avatar">
+					<div class="avatar placeholder">
 						<div class="w-10 rounded-full bg-neutral-focus text-neutral-content lg:w-12">
 							<span class="text-xl">{blog.Author.Username[0]}</span>
 						</div>

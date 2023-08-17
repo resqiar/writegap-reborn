@@ -2,7 +2,7 @@
 	import { fade } from 'svelte/transition';
 	import { handleBlogCreate } from '../../libs/CreateBlog';
 	import ConfirmationModal from '../modal/ConfirmationModal.svelte';
-	import ImageDropzone from '../others/ImageDropzone.svelte';
+	import FileDropzone from '../others/FileDropzone.svelte';
 
 	let title: string = '';
 	let summary: string = '';
@@ -39,9 +39,18 @@
 		});
 
 		// for now just redirect to manage blog when creating only a draft
-		// in the future, it is a good way to handle successful with
 		// displaying a success message.
 		if (id) return (window.location.href = '/blog/manage');
+	}
+
+	function handleMD(file: File) {
+		const reader = new FileReader();
+		reader.addEventListener('load', (event) => {
+			const result = event.target?.result as string;
+			if (result !== null && result !== '') return (content = result);
+		});
+
+		reader.readAsText(file);
 	}
 </script>
 
@@ -73,7 +82,7 @@
 								preview = null;
 							}}
 							title="Discard Image"
-							class="btn-sm btn-circle btn"
+							class="btn btn-circle btn-sm"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +112,13 @@
 					</div>
 				{:else}
 					<!-- IMAGE FILE DROPZONE -->
-					<ImageDropzone onDropSuccess={(file) => (imageFile = file)} />
+					<FileDropzone
+						title="Click or Drag Image Here"
+						subTitle="Supported formats are jpg, jpeg, png"
+						acceptFiles={['image/jpg', 'image/jpeg', 'image/png']}
+						onDropSuccess={(file) => (imageFile = file)}
+						customClass="flex flex-col items-center justify-center min-h-[300px] rounded-lg bg-base-300"
+					/>
 				{/if}
 			</div>
 
@@ -117,7 +132,7 @@
 					id="title-input"
 					type="text"
 					placeholder="e.g The Programmer Story: Hello World"
-					class="input-bordered input w-full"
+					class="input input-bordered w-full"
 					maxlength={100}
 				/>
 				<label class="label" for="title-input">
@@ -133,7 +148,7 @@
 				</div>
 				<textarea
 					bind:value={summary}
-					class="textarea-bordered textarea"
+					class="textarea textarea-bordered"
 					placeholder="e.g The Programmer Story: Hello World follows Alex, a skilled programmer, on a transformative journey. Alex creates an AI program named Hello World that simulates human emotions. As the program evolves, Alex realizes its immense potential..."
 					maxlength={300}
 				/>
@@ -145,6 +160,21 @@
 			<div>
 				<div class="mx-1 my-2">
 					<h2 class="font-semibold">Blog Content</h2>
+				</div>
+
+				<div class="mx-1 my-4 mb-8 flex flex-col gap-6">
+					<p>Do you want to directly fill using Markdown file? Upload them here.</p>
+
+					<!-- Markdown FILE DROPZONE -->
+					<FileDropzone
+						title="Click or drag markdown file here"
+						subTitle="The supported formats are only .md and .txt"
+						acceptFiles={['text/markdown', 'text/plain']}
+						onDropSuccess={handleMD}
+						customClass="px-12 flex flex-col items-center justify-center w-fit min-h-[80px] rounded-lg bg-base-300"
+					/>
+
+					<p>Otherwise, you can use our online editor below.</p>
 				</div>
 
 				<!-- CONTENT EDITOR COMPONENT -->
@@ -195,7 +225,7 @@
 						<div>
 							<label
 								for="create-as-draft-modal"
-								class="btn-sm btn w-full gap-2 rounded-full text-sm font-normal normal-case"
+								class="btn btn-sm w-full gap-2 rounded-full text-sm font-normal normal-case"
 							>
 								Create as <span class="font-semibold text-amber-300">Draft</span>
 							</label>
