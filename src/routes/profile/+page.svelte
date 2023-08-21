@@ -1,8 +1,9 @@
 <script>
-	import ComingSoonBody from '../../components/body/ComingSoonBody.svelte';
 	import { onMount } from 'svelte';
 	import { themeChange } from 'theme-change';
 	import MetaHead from '../../components/meta/MetaHead.svelte';
+	import MainHeader from '../../components/header/MainHeader.svelte';
+	import UserProfileBody from '../../components/body/UserProfileBody.svelte';
 
 	// Mount saved theme from local storage
 	onMount(async () => {
@@ -11,8 +12,10 @@
 </script>
 
 <!-- META TAG -->
-<MetaHead title="Coming Soon | Resqiar.com" />
+<MetaHead title="Resqi Ageng Rahmatullah - @resqiar Profile | Resqiar.com" />
 
 <main>
-	<ComingSoonBody />
+	<MainHeader user={null} active={-1} />
+
+	<UserProfileBody />
 </main>
