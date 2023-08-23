@@ -1,3 +1,7 @@
+<script lang="ts">
+	export let username: string;
+</script>
+
 <ul
 	id="menu-dropdown"
 	tabindex="-1"
@@ -23,7 +27,7 @@
 		>
 	</li>
 	<li>
-		<a href="/profile">
+		<a href={`/${username}`}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"

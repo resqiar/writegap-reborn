@@ -1,31 +1,18 @@
 <script lang="ts">
-	import type { ISafeBlogAuthor } from '../../types/Blog';
-	import BlogCard from '../cards/BlogCard.svelte';
+	import type { ISafeUser } from '../../types/UserProfile';
+	import EditProfileModal from '../modal/EditProfileModal.svelte';
 
-	const mockup: ISafeBlogAuthor = {
-		ID: 'example',
-		Title: 'Example Title',
-		Slug: 'example',
-		Summary: 'Example Summary',
-		Content: '',
-		CreatedAt: '',
-		PublishedAt: '',
-		UpdatedAt: '',
-		CoverURL: '',
-		AuthorID: '',
-		Author: {
-			ID: 'example',
-			CreatedAt: '',
-			UpdatedAt: '',
-			Username: 'resqiar',
-			Bio: 'desc',
-			PictureURL: '',
-			IsTester: true
-		}
-	};
-
-	const blogs: ISafeBlogAuthor[] = [...Array(10).fill(mockup)];
+	export let currentUser: ISafeUser | null;
+	export let profile: ISafeUser;
+	const isEditable: boolean = currentUser?.ID === profile.ID;
 </script>
+
+<!-- ONLY SHOW IF THE USER IS LOGIN AND HAS THE SAME ID AS CURRENT LOOKED PROFILE -->
+{#if isEditable && currentUser}
+	<div class="flex items-center justify-center bg-base-300 py-1 pb-2">
+		<EditProfileModal {currentUser} />
+	</div>
+{/if}
 
 <div class="hero bg-base-200 lg:min-h-[600px]">
 	<div
@@ -33,27 +20,31 @@
 	>
 		<img
 			alt="Hero"
-			src="/media/talent.webp"
+			src={profile.PictureURL}
 			width="400"
 			height="200"
-			class="max-w-[250px] rounded-lg bg-red-500 object-cover lg:mr-8 lg:max-w-sm"
+			class="max-w-[250px] rounded-lg object-cover lg:mr-8 lg:max-w-sm"
 		/>
 
 		<div class="w-full lg:max-w-[650px] lg:pr-16">
-			<h1 class="justify text-5xl font-bold lg:leading-[60px]">Resqi Ageng Rahmatullah</h1>
+			<h1 class="justify text-5xl font-bold lg:leading-[60px]">{profile.Fullname}</h1>
 
 			<p class="py-2 font-semibold leading-6">
-				@resqiar <span class="font-normal">- Joined August 2023</span>
+				@{profile.Username}
+				<span class="font-normal"
+					>- Joined
+					{new Date(profile.CreatedAt).toLocaleDateString('en-US', {
+						month: 'long',
+						year: 'numeric'
+					})}
+				</span>
 			</p>
 
 			<p class="py-2 leading-6">
-				Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint
-				ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur
-				officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate
-				dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea
-				nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat
+				{profile.Bio}
 			</p>
 
+			<!-- FEATURE LOCKED -->
 			<div
 				class="pointer-events-none relative mt-6 flex w-fit flex-wrap justify-center gap-12 px-4"
 			>
@@ -103,9 +94,9 @@
 		<h1 class="text-3xl font-bold">Author's Latest Blogs</h1>
 	</div>
 
-	<section class="my-6 flex flex-col flex-wrap justify-center gap-x-4 gap-y-6 lg:mb-24 lg:flex-row">
-		{#each blogs as item}
-			<BlogCard {item} />
-		{/each}
-	</section>
+	<!-- <section class="my-6 flex flex-col flex-wrap justify-center gap-x-4 gap-y-6 lg:mb-24 lg:flex-row"> -->
+	<!-- 	{#each blogs as item} -->
+	<!-- 		<BlogCard {item} /> -->
+	<!-- 	{/each} -->
+	<!-- </section> -->
 </div>
