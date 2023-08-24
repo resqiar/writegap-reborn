@@ -14,7 +14,7 @@
 	</div>
 {/if}
 
-<div class="hero bg-base-200 lg:min-h-[600px]">
+<div class="hero bg-base-200 pt-6 lg:min-h-[600px] lg:pt-0">
 	<div
 		class="hero-content h-full w-full flex-col justify-center gap-12 py-0 lg:flex-row-reverse lg:px-8"
 	>
@@ -27,9 +27,13 @@
 		/>
 
 		<div class="w-full lg:max-w-[650px] lg:pr-16">
-			<h1 class="justify text-5xl font-bold lg:leading-[60px]">{profile.Fullname}</h1>
+			<h1
+				class="justify text-center text-3xl font-bold md:text-start lg:text-5xl lg:leading-[60px]"
+			>
+				{profile.Fullname}
+			</h1>
 
-			<p class="py-2 font-semibold leading-6">
+			<p class="py-2 text-center font-semibold leading-6 md:text-start">
 				@{profile.Username}
 				<span class="font-normal"
 					>- Joined
@@ -40,13 +44,13 @@
 				</span>
 			</p>
 
-			<p class="py-2 leading-6">
+			<p class="mt-4 py-2 leading-6 md:mt-0">
 				{profile.Bio}
 			</p>
 
 			<!-- FEATURE LOCKED -->
 			<div
-				class="pointer-events-none relative mt-6 flex w-fit flex-wrap justify-center gap-12 px-4"
+				class="pointer-events-none relative mb-12 mt-6 flex w-fit flex-wrap justify-center gap-12 px-4 md:mb-4"
 			>
 				<div
 					class="absolute inset-0 flex w-full items-center justify-center gap-2 backdrop-blur-[3px]"
