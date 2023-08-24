@@ -1,5 +1,10 @@
 <script lang="ts">
 	import type { ISafeUser } from '../../types/UserProfile';
+	import GithubIcon from '../icons/GithubIcon.svelte';
+	import LinkIcon from '../icons/LinkIcon.svelte';
+	import LinkedInIcon from '../icons/LinkedInIcon.svelte';
+	import TwitterIcon from '../icons/TwitterIcon.svelte';
+	import YoutubeIcon from '../icons/YoutubeIcon.svelte';
 	import EditProfileModal from '../modal/EditProfileModal.svelte';
 
 	export let currentUser: ISafeUser | null;
@@ -48,47 +53,112 @@
 				{profile.Bio}
 			</p>
 
-			<!-- FEATURE LOCKED -->
-			<div
-				class="pointer-events-none relative mb-12 mt-6 flex w-fit flex-wrap justify-center gap-12 px-4 md:mb-4"
-			>
-				<div
-					class="absolute inset-0 flex w-full items-center justify-center gap-2 backdrop-blur-[3px]"
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="currentColor"
-						class="h-4 w-4"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
-						/>
-					</svg>
+			<!-- SOCIAL MEDIA -->
+			<div class="mb-12 mt-4 flex flex-col items-center lg:mb-0 lg:flex-row">
+				<div>
+					{#if profile.WebsiteURL.trim().length}
+						<a
+							href={profile.WebsiteURL}
+							target="_blank"
+							class="btn btn-square btn-ghost"
+							title="Website"
+							rel="nofollow noopener"
+						>
+							<LinkIcon />
+						</a>
+					{/if}
 
-					<p class="font-bold">Feature Locked for Future Update</p>
+					{#if profile.GithubURL.trim().length}
+						<a
+							href={profile.GithubURL}
+							target="_blank"
+							class="btn btn-square btn-ghost"
+							title="GitHub"
+							rel="nofollow noopener"
+						>
+							<GithubIcon />
+						</a>
+					{/if}
+
+					{#if profile.LinkedinURL.trim().length}
+						<a
+							href={profile.LinkedinURL}
+							target="_blank"
+							class="btn btn-square btn-ghost"
+							title="LinkedIn"
+							rel="nofollow noopener"
+						>
+							<LinkedInIcon />
+						</a>
+					{/if}
+
+					{#if profile.TwitterURL.trim().length}
+						<a
+							href={profile.TwitterURL}
+							target="_blank"
+							class="btn btn-square btn-ghost"
+							title="Twitter"
+							rel="nofollow noopener"
+						>
+							<TwitterIcon />
+						</a>
+					{/if}
+
+					{#if profile.YoutubeURL.trim().length}
+						<a
+							href={profile.YoutubeURL}
+							target="_blank"
+							class="btn btn-square btn-ghost"
+							title="Youtube"
+							rel="nofollow noopener"
+						>
+							<YoutubeIcon />
+						</a>
+					{/if}
 				</div>
-
-				<p class="flex flex-col items-center lg:text-lg">
-					<span class="font-bold lg:text-xl">102 </span>Followers
-				</p>
-
-				<p class="flex flex-col items-center lg:text-lg">
-					<span class="font-bold lg:text-xl">10 </span>Blogs
-				</p>
-
-				<p class="flex flex-col items-center lg:text-lg">
-					<span class="font-bold lg:text-xl">1K </span>Impressions
-				</p>
-
-				<p class="flex flex-col items-center lg:text-lg">
-					<span class="font-bold lg:text-xl">500 </span>Upvotes
-				</p>
 			</div>
+
+			<!-- FEATURE LOCKED -->
+			<!-- <div -->
+			<!-- 	class="pointer-events-none relative mb-12 mt-6 flex w-fit flex-wrap justify-center gap-12 px-4 md:mb-4" -->
+			<!-- > -->
+			<!-- 	<div -->
+			<!-- 		class="absolute inset-0 flex w-full items-center justify-center gap-2 backdrop-blur-[3px]" -->
+			<!-- 	> -->
+			<!-- 		<svg -->
+			<!-- 			xmlns="http://www.w3.org/2000/svg" -->
+			<!-- 			fill="none" -->
+			<!-- 			viewBox="0 0 24 24" -->
+			<!-- 			stroke-width="1.5" -->
+			<!-- 			stroke="currentColor" -->
+			<!-- 			class="h-4 w-4" -->
+			<!-- 		> -->
+			<!-- 			<path -->
+			<!-- 				stroke-linecap="round" -->
+			<!-- 				stroke-linejoin="round" -->
+			<!-- 				d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" -->
+			<!-- 			/> -->
+			<!-- 		</svg> -->
+			<!---->
+			<!-- 		<p class="font-bold">Feature Locked for Future Update</p> -->
+			<!-- 	</div> -->
+			<!---->
+			<!-- 	<p class="flex flex-col items-center lg:text-lg"> -->
+			<!-- 		<span class="font-bold lg:text-xl">102 </span>Followers -->
+			<!-- 	</p> -->
+			<!---->
+			<!-- 	<p class="flex flex-col items-center lg:text-lg"> -->
+			<!-- 		<span class="font-bold lg:text-xl">10 </span>Blogs -->
+			<!-- 	</p> -->
+			<!---->
+			<!-- 	<p class="flex flex-col items-center lg:text-lg"> -->
+			<!-- 		<span class="font-bold lg:text-xl">1K </span>Impressions -->
+			<!-- 	</p> -->
+			<!---->
+			<!-- 	<p class="flex flex-col items-center lg:text-lg"> -->
+			<!-- 		<span class="font-bold lg:text-xl">500 </span>Upvotes -->
+			<!-- 	</p> -->
+			<!-- </div> -->
 		</div>
 	</div>
 </div>

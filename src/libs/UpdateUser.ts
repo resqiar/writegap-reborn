@@ -62,11 +62,11 @@ export async function handleUserUpdate(input: IUpdateUserInput): Promise<void> {
 				Fullname: input.fullname === input.defaultFullname ? '' : input.fullname,
 				Bio: input.bio === input.defaultBio ? '' : input.bio,
 				PictureURL: imageURL ? imageURL : '',
-				WebsiteURL: input.websiteURL ? input.websiteURL : ' ',
-				GithubURL: input.githubURL ? input.githubURL : ' ',
-				LinkedinURL: input.linkedinURL ? input.linkedinURL : ' ',
-				TwitterURL: input.twitterURL ? input.twitterURL : ' ',
-				YoutubeURL: input.youtubeURL ? input.youtubeURL : ' '
+				WebsiteURL: input.websiteURL ? input.websiteURL.trim() : ' ',
+				GithubURL: input.githubURL ? input.githubURL.trim() : ' ',
+				LinkedinURL: input.linkedinURL ? input.linkedinURL.trim() : ' ',
+				TwitterURL: input.twitterURL ? input.twitterURL.trim() : ' ',
+				YoutubeURL: input.youtubeURL ? input.youtubeURL.trim() : ' '
 			})
 		});
 
