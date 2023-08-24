@@ -49,7 +49,7 @@
 				</span>
 			</p>
 
-			<p class="mt-4 py-2 leading-6 md:mt-0">
+			<p class="mt-4 whitespace-break-spaces py-2 leading-6 md:mt-0">
 				{profile.Bio}
 			</p>
 
