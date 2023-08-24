@@ -2,6 +2,8 @@
 	import { PUBLIC_SERVER_URL } from '$env/static/public';
 	import debounce from '../../libs/Debounce';
 	import type { ISafeUser } from '../../types/UserProfile';
+	import { handleUserUpdate } from '../../libs/UpdateUser';
+	import ProfileDropzone from '../others/ProfileDropzone.svelte';
 	import GithubIcon from '../icons/GithubIcon.svelte';
 	import LinkedInIcon from '../icons/LinkedInIcon.svelte';
 	import TwitterIcon from '../icons/TwitterIcon.svelte';
@@ -22,6 +24,9 @@
 	let youtubeURL: string = currentUser.YoutubeURL;
 
 	let usernameError: string = '';
+
+	let imageFile: File | null = null;
+	let preview: string | ArrayBuffer | null = currentUser.PictureURL;
 
 	async function checkUsername() {
 		usernameError = '';
@@ -46,53 +51,34 @@
 		}
 	}
 
-	async function handleUserUpdate() {
+	async function update() {
 		if (usernameError) return;
 
-		loading = true;
+		await handleUserUpdate({
+			username: username,
+			fullname: fullname,
+			bio: bio,
+			defaultUsername: currentUser.Username,
+			defaultFullname: currentUser.Fullname,
+			defaultBio: currentUser.Bio,
 
-		try {
-			const req = await fetch(`${PUBLIC_SERVER_URL}/user/profile/update`, {
-				method: 'POST',
-				credentials: 'include',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({
-					Username: username === currentUser.Username ? '' : username,
-					Fullname: fullname === currentUser.Fullname ? '' : fullname,
-					Bio: bio === currentUser.Bio ? '' : bio,
-					WebsiteURL: websiteURL ? websiteURL : ' ',
-					GithubURL: githubURL ? githubURL : ' ',
-					LinkedinURL: linkedinURL ? linkedinURL : ' ',
-					TwitterURL: twitterURL ? twitterURL : ' ',
-					YoutubeURL: youtubeURL ? youtubeURL : ' '
-				})
-			});
-
-			if (!req.ok) {
-				const res = await req.json();
-				error = res.error;
-				return (loading = false);
-			}
-
-			loading = false;
-
-			// if the changes include a new username,
-			// that means we need to redirect the user to a new URL.
-			if (username !== currentUser.Username) {
-				return window.location.replace(`${window.location.origin}/${username}`);
-			}
-
-			// otherwise, just reload -
-			// ik it is bad UX, but im too lazy to complicate things rn.
-			window.location.reload();
-		} catch (err) {
-			loading = false;
-			error = err as string;
-		}
+			websiteURL: websiteURL,
+			githubURL: githubURL,
+			linkedinURL: linkedinURL,
+			twitterURL: twitterURL,
+			youtubeURL: youtubeURL,
+			image: imageFile,
+			onLoadingStart: () => (loading = true),
+			onLoadingEnd: () => (loading = false),
+			onError: (message: string) => (error = message)
+		});
 	}
 
+	$: if (imageFile) {
+		const previewReader: FileReader = new FileReader();
+		previewReader.onloadend = () => (preview = previewReader.result);
+		previewReader.readAsDataURL(imageFile);
+	}
 	$: if (username) debounce(checkUsername, 500);
 </script>
 
@@ -120,7 +106,30 @@
 	<div class="modal-box !rounded-b-none md:!rounded-b-xl">
 		<h3 class="text-lg font-bold">Edit Profile</h3>
 
-		<div class="py-6">
+		<!-- PROFILE PICTURE -->
+		<div class="flex w-full justify-center pt-6">
+			<div class="flex flex-col gap-2">
+				<ProfileDropzone
+					customClass="h-[100px] w-[100px] bg-base-200 rounded-full"
+					preview={preview ? preview.toString() : ''}
+					onDropSuccess={(file) => (imageFile = file)}
+				/>
+
+				{#if imageFile}
+					<!-- RESET BUTTON -->
+					<!-- ONLY SHOW WHEN IMAGEFILE EXIST -->
+					<button
+						class="text-sm underline"
+						on:click={() => {
+							imageFile = null;
+							preview = currentUser.PictureURL;
+						}}>Reset</button
+					>
+				{/if}
+			</div>
+		</div>
+
+		<div class="pb-6">
 			<!-- USERNAME -->
 			<div class="form-control w-full">
 				<label class="label" for="username">
@@ -265,9 +274,7 @@
 
 		<div class="modal-action">
 			<button on:click={() => (status = false)} class="btn btn-ghost">Wait, cancel!</button>
-			<button on:click={handleUserUpdate} class="btn btn-primary {loading ? 'loading' : ''}"
-				>Submit</button
-			>
+			<button on:click={update} class="btn btn-primary {loading ? 'loading' : ''}">Submit</button>
 		</div>
 	</div>
 </div>
