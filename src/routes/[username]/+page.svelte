@@ -4,14 +4,16 @@
 	import MetaHead from '../../components/meta/MetaHead.svelte';
 	import MainHeader from '../../components/header/MainHeader.svelte';
 	import UserProfileBody from '../../components/body/UserProfileBody.svelte';
-	import type { PageData } from './$types';
 	import type UserProfile from '../../types/UserProfile';
 	import type { ISafeUser } from '../../types/UserProfile';
+	import type { PageData } from './$types';
+	import type { ISafeBlogAuthor } from '../../types/Blog';
 
 	export let data: PageData;
 
 	let currentUser: UserProfile | null = data.user;
 	let profile: ISafeUser = data.profile;
+	let blogs: ISafeBlogAuthor[] | null = data.blogs;
 
 	// Mount saved theme from local storage
 	onMount(async () => {
@@ -29,5 +31,5 @@
 <main>
 	<MainHeader user={currentUser} active={-1} />
 
-	<UserProfileBody {profile} {currentUser} />
+	<UserProfileBody {profile} {blogs} {currentUser} />
 </main>
