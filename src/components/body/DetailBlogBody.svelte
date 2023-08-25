@@ -137,9 +137,7 @@
 		{/if}
 
 		{#if prevBlog || nextBlog}
-			<div
-				class="mt-4 flex w-full flex-col gap-4 lg:mb-12 lg:flex-row lg:items-center lg:justify-between"
-			>
+			<div class="mt-4 flex w-full flex-col gap-4 lg:mb-12 lg:flex-row lg:justify-between">
 				<div>
 					{#if prevBlog}
 						<a

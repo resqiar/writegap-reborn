@@ -6,9 +6,11 @@
 	let showSummary: boolean = false;
 </script>
 
-<div class="card image-full w-full flex-wrap bg-base-300 shadow-xl lg:h-[100px] lg:w-96">
+<div class="card image-full w-full flex-wrap bg-base-300 shadow-xl lg:w-96">
 	{#if item.CoverURL}
-		<figure><img src={item.CoverURL} class="h-full w-full object-cover" alt="Blog Cover" /></figure>
+		<figure>
+			<img src={item.CoverURL} class="max-h-[200px] w-full object-cover" alt="Blog Cover" />
+		</figure>
 	{/if}
 
 	<div class="card-body">
