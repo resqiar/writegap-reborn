@@ -3,8 +3,32 @@
 	import '../../styles/mdeditor.css';
 	import TesterBadge from '../badges/TesterBadge.svelte';
 	import TranslationMenu from '../menu/TranslationMenu.svelte';
+	import { handleGetPrevNext } from '../../libs/GetPrevNext';
+	import { onMount } from 'svelte';
+	import PrevNextCard from '../cards/PrevNextCard.svelte';
+	import CircleArrowLeftIcon from '../icons/CircleArrowLeftIcon.svelte';
+	import CircleArrowRightIcon from '../icons/CircleArrowRightIcon.svelte';
 
 	export let blog: ISafeBlogAuthor;
+
+	let prevBlog: ISafeBlogAuthor | null = null;
+	let nextBlog: ISafeBlogAuthor | null = null;
+
+	onMount(
+		async () =>
+			await handleGetPrevNext(
+				blog.Prev.trim(),
+				blog.Next.trim(),
+				(prev: ISafeBlogAuthor | null, next: ISafeBlogAuthor | null) => {
+					if (prev) {
+						prevBlog = prev;
+					}
+					if (next) {
+						nextBlog = next;
+					}
+				}
+			)
+	);
 </script>
 
 <main class="my-2 flex justify-center lg:my-6">
@@ -68,40 +92,34 @@
 				</div>
 			</div>
 
-			<div>
-				<!-- <button disabled class="btn-ghost disabled btn-sm btn-circle btn lg:btn-md"> -->
-				<!-- 	<svg -->
-				<!-- 		xmlns="http://www.w3.org/2000/svg" -->
-				<!-- 		fill="none" -->
-				<!-- 		viewBox="0 0 24 24" -->
-				<!-- 		stroke-width="1.5" -->
-				<!-- 		stroke="currentColor" -->
-				<!-- 		class="h-4 w-4 lg:h-6 lg:w-6" -->
-				<!-- 	> -->
-				<!-- 		<path -->
-				<!-- 			stroke-linecap="round" -->
-				<!-- 			stroke-linejoin="round" -->
-				<!-- 			d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" -->
-				<!-- 		/> -->
-				<!-- 	</svg> -->
-				<!-- </button> -->
+			<div class="flex gap-2">
+				{#if prevBlog || nextBlog}
+					<div class="flex w-full items-center">
+						{#if prevBlog}
+							<a
+								href={`/blog/${prevBlog.Author.Username}/${prevBlog.Slug}`}
+								rel="nofollow noopener"
+								target="_blank"
+								class="btn btn-circle btn-ghost btn-sm lg:btn-md"
+								title="Previous Blog"
+							>
+								<CircleArrowLeftIcon />
+							</a>
+						{/if}
 
-				<!-- <button disabled class="btn-ghost disabled btn-sm btn-circle btn lg:btn-md"> -->
-				<!-- 	<svg -->
-				<!-- 		xmlns="http://www.w3.org/2000/svg" -->
-				<!-- 		fill="none" -->
-				<!-- 		viewBox="0 0 24 24" -->
-				<!-- 		stroke-width="1.5" -->
-				<!-- 		stroke="currentColor" -->
-				<!-- 		class="h-4 w-4 lg:h-6 lg:w-6" -->
-				<!-- 	> -->
-				<!-- 		<path -->
-				<!-- 			stroke-linecap="round" -->
-				<!-- 			stroke-linejoin="round" -->
-				<!-- 			d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" -->
-				<!-- 		/> -->
-				<!-- 	</svg> -->
-				<!-- </button> -->
+						{#if nextBlog}
+							<a
+								href={`/blog/${nextBlog.Author.Username}/${nextBlog.Slug}`}
+								rel="nofollow noopener"
+								target="_blank"
+								class="btn btn-circle btn-ghost btn-sm lg:btn-md"
+								title="Next Blog"
+							>
+								<CircleArrowRightIcon />
+							</a>
+						{/if}
+					</div>
+				{/if}
 
 				<!-- TRANSLATION Menu -->
 				<TranslationMenu blogID={blog.ID} />
@@ -115,6 +133,48 @@
 					src={blog.CoverURL}
 					alt="Blog Cover"
 				/>
+			</div>
+		{/if}
+
+		{#if prevBlog || nextBlog}
+			<div
+				class="mt-4 flex w-full flex-col gap-4 lg:mb-12 lg:flex-row lg:items-center lg:justify-between"
+			>
+				<div>
+					{#if prevBlog}
+						<a
+							href={`/blog/${prevBlog.Author.Username}/${prevBlog.Slug}`}
+							rel="nofollow noopener"
+							target="_blank"
+							class="flex flex-col items-start gap-2"
+						>
+							<div class="flex items-center gap-2">
+								<CircleArrowLeftIcon />
+								<h3 class="text-xl font-bold lg:text-2xl">Previous Blog</h3>
+							</div>
+
+							<PrevNextCard item={prevBlog} />
+						</a>
+					{/if}
+				</div>
+
+				<div>
+					{#if nextBlog}
+						<a
+							href={`/blog/${nextBlog.Author.Username}/${nextBlog.Slug}`}
+							rel="nofollow noopener"
+							target="_blank"
+							class="flex flex-col items-end gap-2"
+						>
+							<div class="flex items-center gap-2">
+								<h3 class="text-xl font-bold lg:text-2xl">Next Blog</h3>
+								<CircleArrowRightIcon />
+							</div>
+
+							<PrevNextCard item={nextBlog} />
+						</a>
+					{/if}
+				</div>
 			</div>
 		{/if}
 
