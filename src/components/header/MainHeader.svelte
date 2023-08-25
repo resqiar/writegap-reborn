@@ -69,7 +69,7 @@
 				</label>
 
 				<!-- MENU  -->
-				<MainMenu />
+				<MainMenu username={user.Username} />
 			</div>
 		{:else}
 			<!-- OTHERWISE, SHOW LOGIN LINK -->
