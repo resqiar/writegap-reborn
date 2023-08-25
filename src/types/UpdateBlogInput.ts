@@ -4,6 +4,8 @@ export interface IUpdateBlogInput {
 	summary: string;
 	content: string;
 	image: File | null;
+	prev: string;
+	next: string;
 
 	onError: () => void;
 	onLoadingStart: () => void;
