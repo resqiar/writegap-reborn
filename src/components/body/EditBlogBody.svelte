@@ -255,7 +255,7 @@
 				{/await}
 			</div>
 
-			<div class="form-control mb-64 mt-12 w-full">
+			<div class="form-control mb-4 mt-4 w-full lg:mb-64 lg:mt-12">
 				<div class="mx-1 my-4">
 					<h2 class="font-semibold">Blog Navigation References</h2>
 					<p class="text-sm">
