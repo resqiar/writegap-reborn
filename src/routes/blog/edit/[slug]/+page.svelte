@@ -28,5 +28,5 @@
 	<MainHeader active={1} user={profile} />
 
 	<!-- Body -->
-	<EditBlogBody {blog} />
+	<EditBlogBody {blog} {profile} />
 </header>

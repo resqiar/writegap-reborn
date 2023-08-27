@@ -3,6 +3,8 @@ export interface ICreateBlogInput {
 	summary: string;
 	content: string;
 	image: File | null;
+	prev: string;
+	next: string;
 
 	onError: (error: string) => void;
 	onLoadingStart: () => void;

@@ -76,7 +76,9 @@
 							{#if data.demoURL}
 								<a href={data.demoURL} target="_blank" class="btn">Demo</a>
 							{/if}
-							<a href={data.sourceURL} target="_blank" class="btn">Source Code</a>
+							{#if data.sourceURL}
+								<a href={data.sourceURL} target="_blank" class="btn">Source Code</a>
+							{/if}
 						</div>
 					</div>
 				</div>

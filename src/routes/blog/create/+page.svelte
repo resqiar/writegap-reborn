@@ -30,7 +30,7 @@
 
 	<!-- Body -->
 	{#if eligible}
-		<CreateBlogBody />
+		<CreateBlogBody {profile} />
 	{:else}
 		<div class="mx-4 my-12 lg:mx-24">
 			<IneligibleMessage />

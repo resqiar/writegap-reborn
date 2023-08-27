@@ -12,6 +12,8 @@ export interface IBlog {
 	Content: string;
 	Published: boolean;
 	CoverURL: string;
+	Prev: string;
+	Next: string;
 	AuthorID: string;
 }
 
@@ -25,6 +27,8 @@ export interface ISafeBlog {
 	Summary: string;
 	Content: string;
 	CoverURL: string;
+	Prev: string;
+	Next: string;
 	AuthorID: string;
 }
 
