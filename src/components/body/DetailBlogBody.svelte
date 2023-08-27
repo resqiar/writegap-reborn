@@ -42,7 +42,7 @@
 		<div class="my-4 flex items-center justify-between gap-2 rounded bg-base-300 p-2 py-4 lg:p-4">
 			<div class="flex items-center gap-2">
 				{#if blog.Author.PictureURL}
-					<div class="avatar">
+					<a href={`/${blog.Author.Username}`} class="avatar">
 						<div class="w-8 rounded-full lg:w-12">
 							<img
 								src={blog.Author.PictureURL}
@@ -50,17 +50,17 @@
 								loading="lazy"
 							/>
 						</div>
-					</div>
+					</a>
 				{:else}
-					<div class="avatar placeholder">
+					<a href={`/${blog.Author.Username}`} class="avatar placeholder">
 						<div class="w-10 rounded-full bg-neutral-focus text-neutral-content lg:w-12">
 							<span class="text-xl">{blog.Author.Username[0]}</span>
 						</div>
-					</div>
+					</a>
 				{/if}
 
 				<div>
-					<div class="flex items-center gap-1">
+					<a href={`/${blog.Author.Username}`} class="flex items-center gap-1">
 						<p class="text-sm font-bold">{blog.Author.Username}</p>
 
 						<!-- SHOW BADGES -->
@@ -70,7 +70,7 @@
 								<TesterBadge />
 							</div>
 						{/if}
-					</div>
+					</a>
 
 					<div class="flex flex-col lg:flex-row lg:items-center">
 						<p class="text-xs lg:text-sm">
