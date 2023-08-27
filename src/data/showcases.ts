@@ -1,4 +1,5 @@
 import {
+	astro,
 	fastify,
 	flask,
 	golang,
@@ -15,13 +16,27 @@ import {
 
 export const showcaseData = [
 	{
-		title: 'resqiar.com',
+		title: 'Resqiar.com',
 		description:
 			'My personal page where it becomes the place I want to share all the knowledges, thoughts, playground and everything in between.',
-		images: ['/media/resqiar-1.webp', '/media/resqiar-2.webp', '/media/resqiar-3.webp'],
+		images: [
+			'/media/resqiar-1.webp',
+			'/media/resqiar-2.webp',
+			'/media/resqiar-3.webp',
+			'/media/resqiar-4.webp',
+			'/media/resqiar-5.webp',
+			'/media/resqiar-6.webp'
+		],
 		demoURL: 'https://resqiar.com',
 		sourceURL: 'https://github.com/resqiar/resdev',
 		techs: [svelte, typescript, tailwind, golang, postgres]
+	},
+	{
+		title: 'Roof Tile Collection',
+		description: 'A collections of Roof Tile for SME Business',
+		images: ['/media/rooftile-1.webp', '/media/rooftile-2.webp'],
+		demoURL: 'https://tokoriskiageng.vercel.app',
+		techs: [astro, tailwind]
 	},
 	{
 		title: 'Algo Visualizer',
@@ -41,7 +56,6 @@ export const showcaseData = [
 			'/media/binder-2.webp',
 			'/media/binder-3.webp'
 		],
-		demoURL: 'https://binder-theta.vercel.app',
 		sourceURL: 'https://github.com/resqiar/binder',
 		techs: [svelte, typescript, tailwind, jdoodle]
 	},
@@ -55,7 +69,6 @@ export const showcaseData = [
 			'/media/binder-2.webp',
 			'/media/binder-3.webp'
 		],
-		demoURL: 'https://binder-theta.vercel.app',
 		sourceURL: 'https://github.com/resqiar/binder-server',
 		techs: [typescript, nestjs, fastify, postgres, typeorm, passport]
 	},

@@ -8,6 +8,11 @@ export const typescript = {
 	url: '/media/techs/ts.webp'
 };
 
+export const astro = {
+	title: 'Astro',
+	url: '/media/techs/astro.webp'
+};
+
 export const tailwind = {
 	title: 'Tailwind CSS',
 	url: '/media/techs/tailwind.webp'
