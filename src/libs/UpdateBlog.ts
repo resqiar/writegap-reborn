@@ -45,6 +45,8 @@ export async function handleBlogUpdate(input: IUpdateBlogInput): Promise<boolean
 				title: input.title,
 				summary: input.summary,
 				content: input.content,
+				prev: input.prev ? input.prev : " ",
+				next: input.next ? input.next : " ",
 				coverURL: imageURL ? imageURL : null
 			})
 		});

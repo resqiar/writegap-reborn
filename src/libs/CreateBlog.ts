@@ -44,7 +44,9 @@ export async function handleBlogCreate(input: ICreateBlogInput): Promise<string 
 				title: input.title,
 				summary: input.summary,
 				content: input.content,
-				coverURL: imageURL ? imageURL : null
+				coverURL: imageURL ? imageURL : null,
+				prev: input.prev ? input.prev : " ",
+				next: input.next ? input.next : " ",
 			})
 		});
 
