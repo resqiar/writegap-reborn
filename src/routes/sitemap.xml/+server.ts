@@ -3,10 +3,15 @@ import type { ServerLoadEvent } from '@sveltejs/kit';
 
 export async function GET({ fetch }: ServerLoadEvent) {
 	try {
-		const req = await fetch(`${PUBLIC_SERVER_URL}/blog/list/slug`);
-		if (!req.ok) return;
+		const [blogReq, userReq] = await Promise.allSettled([
+			fetch(`${PUBLIC_SERVER_URL}/blog/list/slug`),
+			fetch(`${PUBLIC_SERVER_URL}/user/list/username`)
+		]);
 
-		const { result } = await req.json();
+		if (blogReq.status === "rejected" || userReq.status === "rejected") return;
+
+		const users = await userReq.value.json();
+		const blogs = await blogReq.value.json();
 
 		const xml = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -22,7 +27,18 @@ export async function GET({ fetch }: ServerLoadEvent) {
             <priority>0.8</priority>
         </url>
 
-        ${result
+        ${users.result
+				.map((username: string) => {
+					return `
+                <url>
+                    <loc>https://resqiar.com/${username}</loc>
+                    <changefreq>daily</changefreq>
+                    <priority>0.8</priority>
+                </url>`;
+				})
+				.join('')}
+
+        ${blogs.result
 				.map((data: { AuthorUsername: string; Slug: string; UpdatedAt: string }) => {
 					return `
                 <url>
