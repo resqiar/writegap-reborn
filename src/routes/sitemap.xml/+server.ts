@@ -32,7 +32,7 @@ export async function GET({ fetch }: ServerLoadEvent) {
 					return `
                 <url>
                     <loc>https://resqiar.com/${username}</loc>
-                    <changefreq>daily</changefreq>
+                    <changefreq>weekly</changefreq>
                     <priority>0.8</priority>
                 </url>`;
 				})
