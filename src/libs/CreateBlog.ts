@@ -1,4 +1,4 @@
-import { PUBLIC_IK_END, PUBLIC_IK_KEY, PUBLIC_SERVER_URL } from '$env/static/public';
+import { PUBLIC_IK_END, PUBLIC_IK_KEY, PUBLIC_SERVER_URL, PUBLIC_IK_MODE } from '$env/static/public';
 import ImageKit from 'imagekit-javascript';
 import type { ICreateBlogInput } from '../types/CreateBlogInput';
 
@@ -27,7 +27,7 @@ export async function handleBlogCreate(input: ICreateBlogInput): Promise<string 
 			const result = await imagekit.upload({
 				file: input.image,
 				fileName: input.image.name,
-				folder: import.meta.env.VITE_NODE_ENV === 'production' ? 'live' : 'local'
+				folder: PUBLIC_IK_MODE === 'prod' ? 'live' : 'local'
 			});
 
 			// Bind result to previous reference.
