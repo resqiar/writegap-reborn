@@ -45,6 +45,15 @@
 					</a>
 				</li>
 			{/each}
+
+			<li>
+				<a href="https://parser.resqiar.com" class="m-0 mx-2 rounded p-0">
+					<p class="flex items-center gap-1 px-2 py-2">
+						Parser
+						<span class="badge badge-warning badge-sm text-xs">beta</span>
+					</p>
+				</a>
+			</li>
 		</ul>
 	</div>
 
