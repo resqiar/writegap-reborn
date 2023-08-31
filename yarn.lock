@@ -2948,10 +2948,10 @@ svelte-file-dropzone@^2.0.1:
   dependencies:
     file-selector "^0.2.4"
 
-svelte-flag-icons@^0.5.5:
-  version "0.5.5"
-  resolved "https://registry.yarnpkg.com/svelte-flag-icons/-/svelte-flag-icons-0.5.5.tgz#d574ee3af26e40f304a6aa387781da5ecbe40367"
-  integrity sha512-66mBHl8fQkkpmcFplYAedtJLHCj+rTC/i8XWxfESlk/b9CliyZjuP3RedJgj71US7NpwYmJMOiluCFoVJJKLZw==
+svelte-flag-icons@^0.7.0:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/svelte-flag-icons/-/svelte-flag-icons-0.7.1.tgz#310b86cd7cdf74420e316da198364487cf3a24ef"
+  integrity sha512-iyxiQ8y6JwtFJ7OsWs0ZTmLHke2dAP8mHyfUfth8VcJbipRR3u339iM3ofop4lBCcscAik0dySGlGK9n0yAwFw==
 
 svelte-hmr@^0.15.2:
   version "0.15.2"
