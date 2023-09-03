@@ -8,6 +8,7 @@
 	import MainHeader from '../../../../components/header/MainHeader.svelte';
 	import MetaHead from '../../../../components/meta/MetaHead.svelte';
 	import SchemaHead from '../../../../components/meta/SchemaHead.svelte';
+	import { handleGetProfile } from '../../../../libs/GetProfile';
 
 	export let data: PageData;
 
@@ -15,13 +16,12 @@
 	// @see ./+page.server.ts
 	let blog: ISafeBlogAuthor = data.blog;
 
-	// Profile data derived from the SSR process
-	// @see ./+page.server.ts
-	let profile: UserProfile | null = data.user;
+	let profile: UserProfile | null = null;
 
 	// Mount saved theme from local storage
 	onMount(async () => {
 		themeChange(false);
+		profile = await handleGetProfile();
 	});
 </script>
 
