@@ -1,6 +1,7 @@
 import { SERVER_URL } from '$env/static/private';
 import { error, type ServerLoadEvent } from '@sveltejs/kit';
 import type UserProfile from '../../../../types/UserProfile';
+import { SafeBlogAuthor } from '../../../../protobuf/blog';
 
 export async function load({ fetch, cookies, params }: ServerLoadEvent) {
 	let author = params.author;
@@ -20,25 +21,30 @@ export async function load({ fetch, cookies, params }: ServerLoadEvent) {
 			// throw error, the catched error then redirect to 404 page
 			if (!blogReq.ok) throw Error();
 			const res = await blogReq.json();
+			console.log(blogReq.headers.get('Content-Length'));
 
 			return {
 				user: userProfile,
-				blog: res.result
+				blog: res.result,
 			};
 		} catch (err) {
+			console.log(err);
 			throw error(404);
 		}
 	} else {
 		try {
 			const [userReq, blogReq] = await Promise.allSettled([
 				fetch(`${SERVER_URL}/user/profile`),
-				fetch(`${SERVER_URL}/blog/get/${author}/${slug}`)
+				fetch(`${SERVER_URL}/blog/p/${author}/${slug}`)
 			]);
 
 			// if request status is not 200 (OK)
 			// throw error, the catched error then redirect to 404 page
 			if (blogReq.status === 'rejected' || !blogReq.value.ok) throw Error();
-			const res = await blogReq.value.json();
+
+			const res = await blogReq.value.arrayBuffer();
+			const message = SafeBlogAuthor.deserializeBinary(new Uint8Array(res)).toObject()
+			console.log(blogReq.value.headers.get('Content-Length'));
 
 			if (userReq.status === 'fulfilled' && userReq.value.ok) {
 				const res = await userReq.value.json();
@@ -47,7 +53,7 @@ export async function load({ fetch, cookies, params }: ServerLoadEvent) {
 
 			return {
 				user: userProfile,
-				blog: res.result
+				blog: message as SafeBlogAuthor
 			};
 		} catch (err) {
 			throw error(404);
