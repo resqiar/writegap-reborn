@@ -7,18 +7,16 @@
 	import MainHeader from '../../components/header/MainHeader.svelte';
 	import type UserProfile from '../../types/UserProfile';
 	import MetaHead from '../../components/meta/MetaHead.svelte';
-	import { handleGetProfile } from '../../libs/GetProfile';
 
 	export let data: PageData;
 
 	// Profile data derived from the SSR process
 	// @see ./+page.server.ts
-	let profile: UserProfile | null = null;
+	let profile: UserProfile | null = data.user;
 
 	// Mount saved theme from local storage
 	onMount(async () => {
 		themeChange(false);
-		profile = await handleGetProfile();
 	});
 </script>
 
