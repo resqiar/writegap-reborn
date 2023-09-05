@@ -51,6 +51,7 @@
 }
 
 /* BYTEMD FULLSCREEN BACKGROUND STYLES */
+.bytemd-fullscreen,
 [data-theme="lofi"] .bytemd-fullscreen,
 [data-theme="corporate"] .bytemd-fullscreen {
   background-color: #fff;
