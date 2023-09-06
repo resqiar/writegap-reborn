@@ -24,13 +24,6 @@
 <!-- META TAG -->
 <MetaHead title={`Editing "${blog.Title}" | Resqiar.com`} />
 
-<!-- PREVENT USER FROM ACCIDENTALLY CLOSE THE PAGE -->
-<svelte:window
-	on:beforeunload|preventDefault={(e) => {
-		e.returnValue = '';
-	}}
-/>
-
 <header>
 	<MainHeader active={1} user={profile} />
 

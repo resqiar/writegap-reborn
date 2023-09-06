@@ -50,7 +50,11 @@
 
 		// for now just redirect to manage blog when creating only a draft
 		// displaying a success message.
-		if (id) return (window.location.href = '/blog/manage');
+		if (id) {
+			// but first, disable the "beforeunload" events
+			quitable = true;
+			return (window.location.href = '/blog/manage');
+		}
 	}
 
 	function handleMD(file: File) {
@@ -63,9 +67,21 @@
 		reader.readAsText(file);
 	}
 
+	let quitable: boolean = false;
+	function beforeUnloadDialog(e: BeforeUnloadEvent) {
+		if (!quitable) {
+			e.preventDefault();
+			return true;
+		}
+		window.removeEventListener('beforeunload', beforeUnloadDialog);
+	}
+
 	let blogs: ISafeBlogAuthor[] = [];
 	onMount(async () => (blogs = await handleGetUserBlogs(profile.Username)));
 </script>
+
+<!-- PREVENT USER FROM ACCIDENTALLY CLOSE THE PAGE -->
+<svelte:window on:beforeunload={beforeUnloadDialog} />
 
 <main class="mb-32 px-4 py-8 lg:px-24">
 	<div>
