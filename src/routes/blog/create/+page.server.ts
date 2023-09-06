@@ -24,7 +24,6 @@ export async function load({ fetch, cookies }: ServerLoadEvent) {
 
 		return {
 			user: userProfile,
-			eligible: userProfile.IsTester
 		};
 	} catch (error) {
 		throw redirect(307, '/auth');
