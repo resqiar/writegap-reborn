@@ -38,5 +38,8 @@
 </script>
 
 <svelte:head>
+	<meta name="author" content={blog.Author.Username} />
+	<meta name="publish_date" property="og:publish_date" content={blog.PublishedAt} />
+
 	{@html formatted}
 </svelte:head>

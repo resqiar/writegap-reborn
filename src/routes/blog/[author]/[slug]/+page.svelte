@@ -31,6 +31,7 @@
 	url={`https://resqiar.com/blog/${blog.Author.Username}/${blog.Slug}`}
 	description={blog.Summary}
 	imageURL={blog.CoverURL}
+	type="blog"
 />
 <SchemaHead {blog} />
 
