@@ -122,7 +122,7 @@
 				{/if}
 
 				<!-- TRANSLATION Menu -->
-				<TranslationMenu blogID={blog.ID} />
+				<TranslationMenu blogAuthor={blog.Author.Username} blogSlug={blog.Slug} />
 			</div>
 		</div>
 

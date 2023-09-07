@@ -4,12 +4,13 @@
 	import Jp from 'svelte-flag-icons/Jp.svelte';
 	import Sa from 'svelte-flag-icons/Sa.svelte';
 
-	export let blogID: string;
-	const URL: string = `https://www-resqiar-com.translate.goog/blog/${blogID}?_x_tr_sl=en&_x_tr_tl=`;
+	export let blogAuthor: string;
+	export let blogSlug: string;
+	const URL: string = `https://www-resqiar-com.translate.goog/blog/${blogAuthor}/${blogSlug}?_x_tr_sl=en&_x_tr_tl=`;
 </script>
 
 <div class="dropdown-end dropdown">
-	<label tabindex="-1" class="btn-ghost btn-sm btn-circle btn lg:btn-md" for="translate-menu">
+	<label tabindex="-1" class="btn btn-circle btn-ghost btn-sm lg:btn-md" for="translate-menu">
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			fill="none"
