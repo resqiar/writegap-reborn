@@ -2,7 +2,6 @@
 	import type UserProfile from '../../types/UserProfile';
 
 	import Logo from '../brand/Logo.svelte';
-	import GithubIcon from '../icons/GithubIcon.svelte';
 	import MainMenu from '../menu/MainMenu.svelte';
 	import MobileNavigation from '../menu/MobileNavigation.svelte';
 	import ThemeChangeMenu from '../menu/ThemeChangeMenu.svelte';
@@ -59,9 +58,31 @@
 
 	<!-- End -->
 	<div class="navbar-end flex items-center lg:gap-2">
+		<!-- DONATE BUTTON -->
+		<a href="https://ko-fi.com/resqiar" class="flex items-center normal-case hover:underline">
+			<span class="hidden lg:flex">
+				<svg
+					class="h-4 w-4"
+					aria-hidden="true"
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 20 16"
+				>
+					<path
+						stroke="currentColor"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M5 2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1M2 5h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm8 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+					/>
+				</svg>
+			</span>
+			<p class="px-2 py-2">Donate</p>
+		</a>
+
 		{#if user}
 			<!-- ONLY SHOW WHEN USER LOGGED-IN -->
-			<div class="dropdown dropdown-end dropdown-bottom">
+			<div class="dropdown-end dropdown-bottom dropdown">
 				<label tabindex="-1" class="btn btn-square btn-ghost" for="menu-dropdown">
 					<!-- AVATAR -->
 					<div class="avatar placeholder">
@@ -86,18 +107,6 @@
 				<p class="px-2 py-2 hover:underline">Login</p>
 			</a>
 		{/if}
-
-		<!-- GITHUB BUTTON -->
-		<a
-			href="https://github.com/resqiar/resqiar.com"
-			target="_blank"
-			aria-label="Give a star on GitHub"
-			title="Give a star on GitHub"
-			class="btn btn-square btn-ghost hidden lg:flex"
-			rel="noreferrer"
-		>
-			<GithubIcon />
-		</a>
 
 		<!-- THEME CHANGE MENU -->
 		<ThemeChangeMenu />
