@@ -179,5 +179,29 @@
 		<article class="markdown-body my-4 px-4 lg:px-0">
 			{@html blog.Content}
 		</article>
+
+		<section class="mt-12 border-2 border-amber-800 px-4 py-6 lg:my-12">
+			<h1 class="text-4xl font-bold">Do you find the page useful?</h1>
+			<p class="py-2">
+				I work on this page during my free time. If you appreciate it and would like to support my
+				efforts, you have the option to support me.
+				<span class="hidden md:inline">
+					<strong class="text-xl">However</strong>, if that's not something you're inclined to do,
+					that's perfectly fine too. You're welcome to continue enjoying the page at no cost. Thank
+					you!
+				</span>
+			</p>
+
+			<!-- DONATE BUTTON -->
+			<a href="/donate" class="my-2 flex items-center">
+				<img
+					height="36"
+					class="h-[36px] rounded-3xl"
+					src="https://storage.ko-fi.com/cdn/kofi3.png"
+					alt="Buy Me a Coffee at ko-fi.com"
+					loading="lazy"
+				/>
+			</a>
+		</section>
 	</div>
 </main>

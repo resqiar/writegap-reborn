@@ -58,28 +58,6 @@
 
 	<!-- End -->
 	<div class="navbar-end flex items-center lg:gap-2">
-		<!-- DONATE BUTTON -->
-		<a href="https://ko-fi.com/resqiar" class="flex items-center normal-case hover:underline">
-			<span class="hidden lg:flex">
-				<svg
-					class="h-4 w-4"
-					aria-hidden="true"
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 20 16"
-				>
-					<path
-						stroke="currentColor"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M5 2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1M2 5h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm8 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
-					/>
-				</svg>
-			</span>
-			<p class="px-2 py-2">Donate</p>
-		</a>
-
 		{#if user}
 			<!-- ONLY SHOW WHEN USER LOGGED-IN -->
 			<div class="dropdown-end dropdown-bottom dropdown">
@@ -107,6 +85,17 @@
 				<p class="px-2 py-2 hover:underline">Login</p>
 			</a>
 		{/if}
+
+		<!-- DONATE BUTTON -->
+		<a href="/donate" class="flex hidden items-center normal-case hover:underline lg:flex">
+			<img
+				height="36"
+				class="h-[36px] rounded-3xl"
+				src="https://storage.ko-fi.com/cdn/kofi3.png"
+				alt="Buy Me a Coffee at ko-fi.com"
+				loading="lazy"
+			/>
+		</a>
 
 		<!-- THEME CHANGE MENU -->
 		<ThemeChangeMenu />
