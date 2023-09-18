@@ -2,7 +2,6 @@
 	import type UserProfile from '../../types/UserProfile';
 
 	import Logo from '../brand/Logo.svelte';
-	import GithubIcon from '../icons/GithubIcon.svelte';
 	import MainMenu from '../menu/MainMenu.svelte';
 	import MobileNavigation from '../menu/MobileNavigation.svelte';
 	import ThemeChangeMenu from '../menu/ThemeChangeMenu.svelte';
@@ -61,7 +60,7 @@
 	<div class="navbar-end flex items-center lg:gap-2">
 		{#if user}
 			<!-- ONLY SHOW WHEN USER LOGGED-IN -->
-			<div class="dropdown dropdown-end dropdown-bottom">
+			<div class="dropdown-end dropdown-bottom dropdown">
 				<label tabindex="-1" class="btn btn-square btn-ghost" for="menu-dropdown">
 					<!-- AVATAR -->
 					<div class="avatar placeholder">
@@ -87,16 +86,15 @@
 			</a>
 		{/if}
 
-		<!-- GITHUB BUTTON -->
-		<a
-			href="https://github.com/resqiar/resqiar.com"
-			target="_blank"
-			aria-label="Give a star on GitHub"
-			title="Give a star on GitHub"
-			class="btn btn-square btn-ghost hidden lg:flex"
-			rel="noreferrer"
-		>
-			<GithubIcon />
+		<!-- DONATE BUTTON -->
+		<a href="/donate" class="flex hidden items-center normal-case hover:underline lg:flex">
+			<img
+				height="36"
+				class="h-[36px] rounded-3xl"
+				src="https://storage.ko-fi.com/cdn/kofi3.png"
+				alt="Buy Me a Coffee at ko-fi.com"
+				loading="lazy"
+			/>
 		</a>
 
 		<!-- THEME CHANGE MENU -->
