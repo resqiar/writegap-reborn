@@ -101,5 +101,18 @@
 				<span class="badge badge-warning badge-sm text-xs">beta</span>
 			</a>
 		</li>
+
+		<li>
+			<!-- DONATE BUTTON -->
+			<a href="/donate" class="flex w-full justify-center normal-case hover:underline">
+				<img
+					height="36"
+					class="h-[36px] rounded-3xl"
+					src="https://storage.ko-fi.com/cdn/kofi3.png"
+					alt="Buy Me a Coffee at ko-fi.com"
+					loading="lazy"
+				/>
+			</a>
+		</li>
 	</ul>
 </div>

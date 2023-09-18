@@ -2,8 +2,8 @@
 	import { themeDark, themeLight } from '../../data/theme';
 </script>
 
-<div class="dropdown-end dropdown">
-	<label tabindex="-1" class="btn-ghost btn" for="theme-change-menu">
+<div class="dropdown-end dropdown hidden lg:flex">
+	<label tabindex="-1" class="btn btn-ghost" for="theme-change-menu">
 		<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
 			<path
 				fill-rule="evenodd"
