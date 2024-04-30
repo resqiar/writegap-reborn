@@ -13,7 +13,7 @@ const config = {
   kit: {
     adapter: adapter({
       runtime: "edge",
-      regions: ["sfo1"],
+      regions: ["sin1"],
     })
   }
 };
