@@ -7,7 +7,7 @@
 	import YoutubeIcon from '../icons/YoutubeIcon.svelte';
 </script>
 
-<div class="hero bg-base-200 lg:min-h-[600px]">
+<div class="hero bg-base-200 lg:min-h-[600px] relative z-[-99]">
 	<div
 		class="hero-content h-full w-full flex-col justify-center gap-12 py-0 lg:flex-row-reverse lg:px-8"
 	>

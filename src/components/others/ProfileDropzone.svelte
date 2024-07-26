@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Dropzone from 'svelte-file-dropzone/Dropzone.svelte';
+	import Dropzone from 'svelte-file-dropzone';
 
 	export let customClass: string = '';
 	export let preview: string = '';
