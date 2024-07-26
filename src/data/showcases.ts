@@ -3,6 +3,7 @@ import {
 	fastify,
 	flask,
 	golang,
+	htmx,
 	jdoodle,
 	nestjs,
 	passport,
@@ -47,7 +48,7 @@ export const showcaseData = [
 		techs: [svelte, typescript]
 	},
 	{
-		title: 'Binder',
+		title: 'Binder (New)',
 		description:
 			'My personal binder extensions. Used to store additional data to organize my binder books. With Image, Code, Playground, and QR Code functionalities, effortlessly store and organize additional data within your binder books.',
 		images: [
@@ -57,10 +58,24 @@ export const showcaseData = [
 			'/media/binder-3.webp'
 		],
 		sourceURL: 'https://github.com/resqiar/binder',
+		demoURL: 'https://binder.hubku.com',
+		techs: [golang, htmx, tailwind, postgres]
+	},
+	{
+		title: 'Binder (Legacy)',
+		description:
+			'My personal binder extensions. Used to store additional data to organize my binder books. With Image, Code, Playground, and QR Code functionalities, effortlessly store and organize additional data within your binder books.',
+		images: [
+			'/media/binder.webp',
+			'/media/binder-1.webp',
+			'/media/binder-2.webp',
+			'/media/binder-3.webp'
+		],
+		sourceURL: 'https://github.com/resqiar/binder-web',
 		techs: [svelte, typescript, tailwind, jdoodle]
 	},
 	{
-		title: 'Binder Server',
+		title: 'Binder Server (Legacy)',
 		description:
 			"Binder server built with NestJS and Fastify. The server provides and maintains Extension's data to Binder App through its APIs.",
 		images: [

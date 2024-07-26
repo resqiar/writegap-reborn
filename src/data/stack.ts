@@ -62,3 +62,8 @@ export const golang = {
 	title: 'Golang',
 	url: '/media/techs/golang.webp'
 };
+
+export const htmx = {
+	title: 'HTMX',
+	url: '/media/techs/htmx.webp'
+};
