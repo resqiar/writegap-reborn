@@ -16,13 +16,13 @@ export async function GET({ fetch }: ServerLoadEvent) {
 		const xml = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
         <url>
-            <loc>https://resqiar.com</loc>
+            <loc>https://res.hubku.com</loc>
             <changefreq>weekly</changefreq>
             <priority>0.8</priority>
         </url>
 
         <url>
-            <loc>https://resqiar.com/blog</loc>
+            <loc>https://res.hubku.com/blog</loc>
             <changefreq>weekly</changefreq>
             <priority>0.8</priority>
         </url>
@@ -31,7 +31,7 @@ export async function GET({ fetch }: ServerLoadEvent) {
 				.map((username: string) => {
 					return `
                 <url>
-                    <loc>https://resqiar.com/${username}</loc>
+                    <loc>https://res.hubku.com/${username}</loc>
                     <changefreq>weekly</changefreq>
                     <priority>0.8</priority>
                 </url>`;
@@ -42,7 +42,7 @@ export async function GET({ fetch }: ServerLoadEvent) {
 				.map((data: { AuthorUsername: string; Slug: string; UpdatedAt: string }) => {
 					return `
                 <url>
-                    <loc>https://resqiar.com/blog/${data.AuthorUsername}/${data.Slug}</loc>
+                    <loc>https://res.hubku.com/blog/${data.AuthorUsername}/${data.Slug}</loc>
                     <changefreq>daily</changefreq>
                     <lastmod>${data.UpdatedAt}</lastmod>
                     <priority>0.9</priority>
